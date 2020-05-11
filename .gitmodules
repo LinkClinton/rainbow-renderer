@@ -1,0 +1,6 @@
+[submodule "libraries/rainbow"]
+	path = libraries/rainbow
+	url = https://github.com/LinkClinton/rainbow.git
+[submodule "libraries/meta-scene"]
+	path = libraries/meta-scene
+	url = https://github.com/LinkClinton/meta-scene.git
