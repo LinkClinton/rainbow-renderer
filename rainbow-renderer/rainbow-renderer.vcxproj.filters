@@ -11,6 +11,36 @@
     <ClCompile Include="core\renderer_scene.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="converter\spectrum.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\transform.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\integrator.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\sampler.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\filter.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\camera.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\material.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\shape.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\emitter.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\scene.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="importers">
@@ -18,6 +48,9 @@
     </Filter>
     <Filter Include="core">
       <UniqueIdentifier>{58e6ddc9-0ae7-4130-84c5-08be69ad5d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="converter">
+      <UniqueIdentifier>{86ce20d7-d59a-45ed-bd1f-a8e269cfa11d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +62,36 @@
     </ClInclude>
     <ClInclude Include="core\renderer_scene.hpp">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\spectrum.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\transform.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\integrator.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\sampler.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\camera.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\filter.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\material.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\shape.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\emitter.hpp">
+      <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\scene.hpp">
+      <Filter>converter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
