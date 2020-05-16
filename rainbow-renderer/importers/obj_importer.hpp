@@ -6,7 +6,7 @@
 #include <memory>
 #include <vector>
 
-#define __OBJ_LOADER__
+#define __OBJ_IMPORTER__
 
 namespace rainbow {
 
@@ -16,7 +16,7 @@ namespace rainbow {
 
 		namespace importers {
 
-#ifdef __OBJ_LOADER__
+#ifdef __OBJ_IMPORTER__
 			std::vector<std::shared_ptr<mesh>> load_obj_mesh(const std::string& file_name);
 #endif
 

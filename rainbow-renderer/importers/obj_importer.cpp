@@ -2,13 +2,13 @@
 
 #include "rainbow/shared/logs/log.hpp"
 
-#ifdef __OBJ_LOADER__
+#ifdef __OBJ_IMPORTER__
 
 #include <tiny_obj_loader.h>
 
 #endif
 
-#ifdef __OBJ_LOADER__
+#ifdef __OBJ_IMPORTER__
 
 std::vector<std::shared_ptr<rainbow::mesh>> rainbow::renderer::importers::load_obj_mesh(const std::string& file_name)
 {

@@ -73,25 +73,25 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(SolutionDir)libraries/tinyply;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(SolutionDir)libraries/tinyply;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(SolutionDir)libraries/tinyply;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libraries/rainbow;$(SolutionDir)libraries/meta-scene;$(SolutionDir)libraries/tinyply;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -177,8 +177,11 @@
     <ClCompile Include="converter\spectrum.cpp" />
     <ClCompile Include="converter\transform.cpp" />
     <ClCompile Include="core\renderer_scene.cpp" />
+    <ClCompile Include="importers\image_importer.cpp" />
     <ClCompile Include="importers\mitsuba_importer.cpp" />
     <ClCompile Include="importers\obj_importer.cpp" />
+    <ClCompile Include="importers\pbrt_importer.cpp" />
+    <ClCompile Include="importers\ply_importer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,8 +196,11 @@
     <ClInclude Include="converter\spectrum.hpp" />
     <ClInclude Include="converter\transform.hpp" />
     <ClInclude Include="core\renderer_scene.hpp" />
+    <ClInclude Include="importers\image_importer.hpp" />
     <ClInclude Include="importers\mitsuba_importer.hpp" />
     <ClInclude Include="importers\obj_importer.hpp" />
+    <ClInclude Include="importers\pbrt_importer.hpp" />
+    <ClInclude Include="importers\ply_importer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

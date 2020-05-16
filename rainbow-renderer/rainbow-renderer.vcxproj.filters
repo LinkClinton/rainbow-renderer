@@ -41,6 +41,15 @@
     <ClCompile Include="converter\scene.cpp">
       <Filter>converter</Filter>
     </ClCompile>
+    <ClCompile Include="importers\ply_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="importers\pbrt_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="importers\image_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="importers">
@@ -92,6 +101,15 @@
     </ClInclude>
     <ClInclude Include="converter\scene.hpp">
       <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="importers\ply_importer.hpp">
+      <Filter>importers</Filter>
+    </ClInclude>
+    <ClInclude Include="importers\pbrt_importer.hpp">
+      <Filter>importers</Filter>
+    </ClInclude>
+    <ClInclude Include="importers\image_importer.hpp">
+      <Filter>importers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
