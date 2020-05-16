@@ -20,11 +20,15 @@ git submodule update --init --recursive
 
 ## Scene
 
-Now only support part of `mitsuba` scene format. See more in [meta-scene](https://github.com/LinkClinton/meta-scene). It is a library to load different scene format.
+Now only support part of `mitsuba` scene format and part of `pbrt-v3` scene. See more in [meta-scene](https://github.com/LinkClinton/meta-scene). It is a library to load different scene format.
 
 ## ThirdParties
 
 - [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader) : Tiny but powerful single file wavefront obj loader.
+- [tinyply](https://github.com/ddiakopoulos/tinyply) : 🌍 C++11 ply 3d mesh format importer & exporter.
+- [stb_image](https://github.com/nothings/stb) : stb single-file public domain libraries for C/C++.
+
+`tinyply` is not a package of vcpkg. So we have a copy of it in [libraries](./libraries/tinyply).
 
 ## Gallery
 
@@ -35,3 +39,7 @@ Now only support part of `mitsuba` scene format. See more in [meta-scene](https:
 [Multiple importance sampling test — based on a scene by Eric Veach](http://mitsuba-renderer.org/download.html)
 
 ![mi](./gallery/mi.png)
+
+[Dragon with Environment](https://pbrt.org/resources.html)
+
+![dragon-32spp](./gallery/f8-10.png)
