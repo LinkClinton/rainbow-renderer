@@ -8,8 +8,10 @@ namespace rainbow::renderer {
 
 	void renderer_scene::render_to(const std::string& filename) const
 	{
+#ifndef _DEBUG
 		scene->build_accelerator();
-
+#endif
+		
 		integrator->render(camera, scene);
 
 		film->write(filename);
