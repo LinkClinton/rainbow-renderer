@@ -4,7 +4,7 @@
 
 #include "rainbow/integrators/integrator.hpp"
 
-#include "sampler.hpp"
+#include "convert_sampler.hpp"
 
 namespace rainbow {
 

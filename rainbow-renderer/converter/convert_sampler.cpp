@@ -1,4 +1,4 @@
-#include "sampler.hpp"
+#include "convert_sampler.hpp"
 
 #include "meta-scene/samplers/random_sampler.hpp"
 

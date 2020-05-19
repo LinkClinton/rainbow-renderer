@@ -1,4 +1,4 @@
-#include "spectrum.hpp"
+#include "convert_spectrum.hpp"
 
 #include "meta-scene/spectrums/sampled_spectrum.hpp"
 #include "meta-scene/spectrums/color_spectrum.hpp"

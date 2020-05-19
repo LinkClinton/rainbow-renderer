@@ -1,12 +1,12 @@
-#include "camera.hpp"
+#include "convert_camera.hpp"
 
 #include "meta-scene/cameras/perspective_camera.hpp"
 
 #include "rainbow/cameras/perspective_camera.hpp"
 #include "rainbow/shared/logs/log.hpp"
 
-#include "transform.hpp"
-#include "filter.hpp"
+#include "convert_transform.hpp"
+#include "convert_filter.hpp"
 
 namespace rainbow::renderer::converter {
 

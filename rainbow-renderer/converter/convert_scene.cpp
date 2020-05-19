@@ -1,10 +1,10 @@
-#include "scene.hpp"
+#include "convert_scene.hpp"
 
-#include "transform.hpp"
+#include "convert_transform.hpp"
 
-#include "material.hpp"
-#include "emitter.hpp"
-#include "shape.hpp"
+#include "convert_material.hpp"
+#include "convert_emitter.hpp"
+#include "convert_shape.hpp"
 
 namespace rainbow::renderer::converter {
 

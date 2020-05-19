@@ -1,8 +1,8 @@
 #include "renderer_scene.hpp"
 
-#include "../converter/integrator.hpp"
-#include "../converter/camera.hpp"
-#include "../converter/scene.hpp"
+#include "../converter/convert_integrator.hpp"
+#include "../converter/convert_camera.hpp"
+#include "../converter/convert_scene.hpp"
 
 namespace rainbow::renderer {
 

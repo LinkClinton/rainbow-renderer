@@ -166,16 +166,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="converter\camera.cpp" />
-    <ClCompile Include="converter\emitter.cpp" />
-    <ClCompile Include="converter\filter.cpp" />
-    <ClCompile Include="converter\integrator.cpp" />
-    <ClCompile Include="converter\material.cpp" />
-    <ClCompile Include="converter\sampler.cpp" />
-    <ClCompile Include="converter\scene.cpp" />
-    <ClCompile Include="converter\shape.cpp" />
-    <ClCompile Include="converter\spectrum.cpp" />
-    <ClCompile Include="converter\transform.cpp" />
+    <ClCompile Include="converter\convert_camera.cpp" />
+    <ClCompile Include="converter\convert_emitter.cpp" />
+    <ClCompile Include="converter\convert_filter.cpp" />
+    <ClCompile Include="converter\convert_integrator.cpp" />
+    <ClCompile Include="converter\convert_material.cpp" />
+    <ClCompile Include="converter\convert_sampler.cpp" />
+    <ClCompile Include="converter\convert_scene.cpp" />
+    <ClCompile Include="converter\convert_shape.cpp" />
+    <ClCompile Include="converter\convert_spectrum.cpp" />
+    <ClCompile Include="converter\convert_texture.cpp" />
+    <ClCompile Include="converter\convert_transform.cpp" />
     <ClCompile Include="core\renderer_scene.cpp" />
     <ClCompile Include="importers\image_importer.cpp" />
     <ClCompile Include="importers\mitsuba_importer.cpp" />
@@ -185,16 +186,17 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="converter\camera.hpp" />
-    <ClInclude Include="converter\emitter.hpp" />
-    <ClInclude Include="converter\filter.hpp" />
-    <ClInclude Include="converter\integrator.hpp" />
-    <ClInclude Include="converter\material.hpp" />
-    <ClInclude Include="converter\sampler.hpp" />
-    <ClInclude Include="converter\scene.hpp" />
-    <ClInclude Include="converter\shape.hpp" />
-    <ClInclude Include="converter\spectrum.hpp" />
-    <ClInclude Include="converter\transform.hpp" />
+    <ClInclude Include="converter\convert_camera.hpp" />
+    <ClInclude Include="converter\convert_emitter.hpp" />
+    <ClInclude Include="converter\convert_filter.hpp" />
+    <ClInclude Include="converter\convert_integrator.hpp" />
+    <ClInclude Include="converter\convert_material.hpp" />
+    <ClInclude Include="converter\convert_sampler.hpp" />
+    <ClInclude Include="converter\convert_scene.hpp" />
+    <ClInclude Include="converter\convert_shape.hpp" />
+    <ClInclude Include="converter\convert_spectrum.hpp" />
+    <ClInclude Include="converter\convert_texture.hpp" />
+    <ClInclude Include="converter\convert_transform.hpp" />
     <ClInclude Include="core\renderer_scene.hpp" />
     <ClInclude Include="importers\image_importer.hpp" />
     <ClInclude Include="importers\mitsuba_importer.hpp" />

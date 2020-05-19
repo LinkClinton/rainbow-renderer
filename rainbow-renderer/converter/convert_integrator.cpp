@@ -1,4 +1,4 @@
-#include "integrator.hpp"
+#include "convert_integrator.hpp"
 
 #include "meta-scene/integrators/direct_integrator.hpp"
 #include "meta-scene/integrators/path_integrator.hpp"

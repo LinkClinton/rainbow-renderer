@@ -4,7 +4,7 @@
 using namespace rainbow;
 
 int main() {
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/yeahright/yeahright.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/lte-orb/lte-orb-silver.pbrt");
 
 	scene.render_to("image");
 

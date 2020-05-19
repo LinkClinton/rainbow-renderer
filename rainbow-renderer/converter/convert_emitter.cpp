@@ -1,4 +1,4 @@
-#include "emitter.hpp"
+#include "convert_emitter.hpp"
 
 #include "meta-scene/emitters/environment_emitter.hpp"
 #include "meta-scene/emitters/surface_emitter.hpp"
@@ -9,7 +9,7 @@
 
 #include "../importers/image_importer.hpp"
 
-#include "spectrum.hpp"
+#include "convert_spectrum.hpp"
 
 namespace rainbow::renderer::converter {
 

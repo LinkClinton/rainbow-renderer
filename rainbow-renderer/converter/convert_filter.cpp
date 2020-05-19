@@ -1,4 +1,4 @@
-#include "filter.hpp"
+#include "convert_filter.hpp"
 
 #include "meta-scene/filters/gaussian_filter.hpp"
 #include "meta-scene/filters/box_filter.hpp"

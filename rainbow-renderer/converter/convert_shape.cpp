@@ -1,4 +1,4 @@
-#include "shape.hpp"
+#include "convert_shape.hpp"
 
 #include "meta-scene/shapes/triangles.hpp"
 #include "meta-scene/shapes/sphere.hpp"
