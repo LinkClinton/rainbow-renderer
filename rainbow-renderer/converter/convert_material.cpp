@@ -4,12 +4,14 @@
 #include "meta-scene/materials/diffuse_material.hpp"
 #include "meta-scene/materials/glass_material.hpp"
 #include "meta-scene/materials/metal_material.hpp"
+#include "meta-scene/materials/uber_material.hpp"
 
 #include "rainbow/textures/constant_texture.hpp"
 #include "rainbow/materials/plastic_material.hpp"
 #include "rainbow/materials/matte_material.hpp"
 #include "rainbow/materials/glass_material.hpp"
 #include "rainbow/materials/metal_material.hpp"
+#include "rainbow/materials/uber_material.hpp"
 #include "rainbow/shared/logs/log.hpp"
 
 #include "convert_texture.hpp"
@@ -53,6 +55,19 @@ namespace rainbow::renderer::converter {
 			create_vector2_texture(material->roughness_u, material->roughness_v),
 			material->remapped_roughness_to_alpha);
 	}
+
+	std::shared_ptr<material> create_uber_material(const std::shared_ptr<metascene::materials::uber_material>& material)
+	{
+		return std::make_shared<uber_material>(
+			create_spectrum_texture(material->transmission),
+			create_spectrum_texture(material->reflectance),
+			create_spectrum_texture(material->specular),
+			create_spectrum_texture(material->diffuse),
+			create_spectrum_texture(material->opacity),
+			create_vector2_texture(material->roughness_u, material->roughness_v),
+			create_real_texture(material->eta),
+			material->remapped_roughness_to_alpha);
+	}
 	
 	std::shared_ptr<material> create_material(const std::shared_ptr<metascene::materials::material>& material)
 	{
@@ -69,6 +84,9 @@ namespace rainbow::renderer::converter {
 
 		if (material->type == metascene::materials::type::metal)
 			return create_metal_material(std::static_pointer_cast<metascene::materials::metal_material>(material));
+
+		if (material->type == metascene::materials::type::uber)
+			return create_uber_material(std::static_pointer_cast<metascene::materials::uber_material>(material));
 		
 		logs::error("unknown material.");
 
