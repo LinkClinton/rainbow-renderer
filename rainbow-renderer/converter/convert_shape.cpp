@@ -48,7 +48,8 @@ namespace rainbow::renderer::converter {
 			std::vector<vector3>(),
 			triangles->normals,
 			triangles->uvs,
-			triangles->indices);
+			triangles->indices,
+			triangles->reverse_orientation);
 	}
 	
 	std::shared_ptr<shape> create_shape(const std::shared_ptr<metascene::shapes::shape>& shape)

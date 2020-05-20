@@ -27,8 +27,11 @@ namespace rainbow::renderer::converter {
 		const std::shared_ptr<metascene::cameras::perspective_camera>& camera,
 		const std::shared_ptr<metascene::cameras::film>& film)
 	{
+		const auto system = camera->system == metascene::cameras::coordinate_system::right_hand ?
+			cameras::coordinate_system::right_hand : cameras::coordinate_system::left_hand;
+		
 		return std::make_shared<perspective_camera>(
-			create_film(film), read_transform(camera->transform), radians(camera->fov));
+			create_film(film), read_transform(camera->transform), system, radians(camera->fov));
 	}
 	
 	std::shared_ptr<camera> create_camera(
