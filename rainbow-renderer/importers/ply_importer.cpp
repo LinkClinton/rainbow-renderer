@@ -101,22 +101,28 @@ namespace rainbow::renderer::importers {
 
 		for (const auto& element : file.get_elements()) {
 			for (const auto& property : element.properties) {
-				if (!property.isList || property.listCount == 0) continue;
-				
 				if (property.name == "nx" || property.name == "ny" || property.name == "nz")
 					normal_element = element.name;
 
 				if (property.name == "u" || property.name == "v")
-					normal_element = element.name;
+					uv_element = element.name;
 			}
 		}
 		
 		const auto indices = file.request_properties_from_element("face", { "vertex_indices" }, 3);
 
 		const auto positions = file.request_properties_from_element("vertex", { "x", "y", "z" });
-		const auto normals = normal_element.empty() ? nullptr : file.request_properties_from_element(normal_element, { "nx, ny, nz" });
-		const auto uvs = uv_element.empty() ? nullptr : file.request_properties_from_element(uv_element, { "u", "v" });
 
+		std::shared_ptr<PlyData> normals;
+		std::shared_ptr<PlyData> uvs;
+
+
+		if (!normal_element.empty())
+			normals = file.request_properties_from_element(normal_element, { "nx", "ny", "nz" });
+		
+		if (!uv_element.empty())
+			uvs = file.request_properties_from_element(uv_element, { "u", "v" });
+		
 		file.read(stream);
 
 		std::vector<unsigned> mesh_indices;

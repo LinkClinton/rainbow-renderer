@@ -735,7 +735,11 @@ std::shared_ptr<PlyData> PlyFile::PlyFileImpl::request_properties_from_element(c
         {
             std::stringstream ss;
             for (auto & str : keys_not_found) ss << str << ", ";
-            throw std::invalid_argument("the following property keys were not found in the header: " + ss.str());
+
+        	// nullptr is engough...
+        	return nullptr;
+        	
+            //throw std::invalid_argument("the following property keys were not found in the header: " + ss.str());
         }
 
         for (const auto & key : propertyKeys)
