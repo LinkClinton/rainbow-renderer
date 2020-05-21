@@ -96,10 +96,10 @@ namespace rainbow::renderer::importers {
 
 		file.parse_header(stream);
 
-		std::string normal_element = "";
-		std::string uv_element = "";
+		std::string normal_element = "vertex";
+		std::string uv_element = "vertex";
 
-		for (const auto& element : file.get_elements()) {
+		/*for (const auto& element : file.get_elements()) {
 			for (const auto& property : element.properties) {
 				if (property.name == "nx" || property.name == "ny" || property.name == "nz")
 					normal_element = element.name;
@@ -107,7 +107,7 @@ namespace rainbow::renderer::importers {
 				if (property.name == "u" || property.name == "v")
 					uv_element = element.name;
 			}
-		}
+		}*/
 		
 		const auto indices = file.request_properties_from_element("face", { "vertex_indices" }, 3);
 

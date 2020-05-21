@@ -13,7 +13,7 @@ namespace rainbow::renderer::converter {
 		const std::shared_ptr<metascene::integrators::path_integrator>& integrator,
 		const std::shared_ptr<metascene::samplers::sampler>& sampler)
 	{
-		return std::make_shared<path_integrator>(create_sampler2d(sampler), create_sampler1d(sampler), integrator->depth);
+		return std::make_shared<path_integrator>(create_sampler2d(sampler), create_sampler1d(sampler), integrator->depth, integrator->threshold);
 	}
 
 	std::shared_ptr<integrator> create_direct_integrator(
