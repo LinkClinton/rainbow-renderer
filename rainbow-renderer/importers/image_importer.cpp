@@ -1,7 +1,5 @@
 #include "image_importer.hpp"
 
-#include "../core/renderer_config.hpp"
-
 #ifdef __IMAGE_IMPORTER__
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -10,7 +8,7 @@
 
 namespace rainbow::renderer::importers {
 
-	image_info read_image(const std::string& name, bool gamma)
+	image_info read_image(const std::string& name, const coordinate_system& system, bool gamma)
 	{
 		auto channel = 0;
 		auto width = 0;
@@ -24,7 +22,7 @@ namespace rainbow::renderer::importers {
 		info.height = height;
 		info.data = std::vector<real>(info.width * info.height * 4);
 
-		if (renderer_config::uv_system == coordinate_system::left_hand) {
+		if (system == coordinate_system::left_hand) {
 
 			for (size_t index = 0; index < info.data.size(); index++) {
 				const auto value = static_cast<real>(data[index]) / 255;
@@ -56,7 +54,7 @@ namespace rainbow::renderer::importers {
 		return info;
 	}
 	
-	image_info read_image_hdr(const std::string& name, bool gamma)
+	image_info read_image_hdr(const std::string& name, const coordinate_system& system, bool gamma)
 	{
 		auto channel = 0;
 		auto width = 0;
@@ -71,7 +69,7 @@ namespace rainbow::renderer::importers {
 		info.data = std::vector<real>(info.width * info.height * 4);
 
 
-		if (renderer_config::uv_system == coordinate_system::left_hand) {
+		if (system == coordinate_system::left_hand) {
 
 			for (size_t index = 0; index < info.data.size(); index++)
 				info.data[index] = gamma ? inverse_gamma_correct(data[index]) : data[index];
@@ -98,6 +96,22 @@ namespace rainbow::renderer::importers {
 		stbi_image_free(data);
 
 		return info;
+	}
+
+	std::shared_ptr<image_texture2d<spectrum>> import_environment_map(const std::string& name, bool gamma)
+	{
+		// the uv coordinate system of environment light always is left hand
+		const auto image_info = read_image_hdr(name, coordinate_system::left_hand, false);
+
+		auto values = std::vector<spectrum>(image_info.width * image_info.height);
+
+		for (size_t index = 0; index < values.size(); index++) {
+			values[index].coefficient[0] = gamma ? inverse_gamma_correct(image_info.data[index * 4 + 0]) : image_info.data[index * 4 + 0];
+			values[index].coefficient[1] = gamma ? inverse_gamma_correct(image_info.data[index * 4 + 1]) : image_info.data[index * 4 + 1];
+			values[index].coefficient[2] = gamma ? inverse_gamma_correct(image_info.data[index * 4 + 2]) : image_info.data[index * 4 + 2];
+		}
+
+		return std::make_shared<image_texture2d<spectrum>>(texture_size<2>(image_info.width, image_info.height), values);
 	}
 
 }

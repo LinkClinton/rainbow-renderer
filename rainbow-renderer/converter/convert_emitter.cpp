@@ -23,7 +23,7 @@ namespace rainbow::renderer::converter {
 		if (emitter->environment_map.empty())
 			return std::make_shared<environment_light>(read_spectrum(emitter->intensity), 1000.0f);
 
-		return std::make_shared<environment_light>(importers::import_texture2d<spectrum>(emitter->environment_map),
+		return std::make_shared<environment_light>(importers::import_environment_map(emitter->environment_map),
 			read_spectrum(emitter->intensity), 1000.0f);
 	}
 	

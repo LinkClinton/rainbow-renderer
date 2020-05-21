@@ -7,6 +7,8 @@
 #include "rainbow/shared/spectrums/spectrum.hpp"
 #include "rainbow/textures/image_texture.hpp"
 
+#include "../core/renderer_config.hpp"
+
 #include <filesystem>
 
 namespace rainbow {
@@ -25,16 +27,16 @@ namespace rainbow {
 				size_t width;
 			};
 
-			image_info read_image(const std::string& name, bool gamma = false);
+			image_info read_image(const std::string& name, const coordinate_system& system, bool gamma = false);
 			
-			image_info read_image_hdr(const std::string& name, bool gamma = false);
+			image_info read_image_hdr(const std::string& name, const coordinate_system& system, bool gamma = false);
 			
 			template <typename T>
 			std::shared_ptr<image_texture2d<T>> read_texture2d(const std::string& name, bool gamma = false);
 
 			template <typename T>
 			std::shared_ptr<image_texture2d<T>> read_texture2d_hdr(const std::string& name, bool gamma = false);
-
+			
 			template <typename T>
 			std::shared_ptr<image_texture2d<T>> import_texture2d(const std::string& name, bool gamma = false)
 			{
@@ -43,11 +45,13 @@ namespace rainbow {
 
 				return read_texture2d<T>(name, gamma);
 			}
+
+			std::shared_ptr<image_texture2d<spectrum>> import_environment_map(const std::string& name, bool gamma = false);
 			
 			template <>
 			inline std::shared_ptr<image_texture2d<spectrum>> read_texture2d_hdr(const std::string& name, bool gamma)
 			{
-				const auto image_info = read_image_hdr(name, false);
+				const auto image_info = read_image_hdr(name, renderer_config::uv_system, false);
 
 				auto values = std::vector<spectrum>(image_info.width * image_info.height);
 
@@ -63,7 +67,7 @@ namespace rainbow {
 			template <>
 			inline std::shared_ptr<image_texture2d<real>> read_texture2d(const std::string& name, bool gamma)
 			{
-				const auto image_info = read_image(name, false);
+				const auto image_info = read_image(name, renderer_config::uv_system, false);
 
 				auto values = std::vector<real>(image_info.width * image_info.height);
 
@@ -76,7 +80,7 @@ namespace rainbow {
 			template <>
 			inline std::shared_ptr<image_texture2d<vector2>> read_texture2d(const std::string& name, bool gamma)
 			{
-				const auto image_info = read_image(name, false);
+				const auto image_info = read_image(name, renderer_config::uv_system, false);
 
 				auto values = std::vector<vector2>(image_info.width * image_info.height);
 
@@ -91,7 +95,7 @@ namespace rainbow {
 			template <>
 			inline std::shared_ptr<image_texture2d<spectrum>> read_texture2d(const std::string& name, bool gamma)
 			{
-				const auto image_info = read_image(name, false);
+				const auto image_info = read_image(name, renderer_config::uv_system, false);
 
 				auto values = std::vector<spectrum>(image_info.width * image_info.height);
 
