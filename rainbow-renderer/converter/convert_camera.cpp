@@ -5,8 +5,13 @@
 #include "rainbow/cameras/perspective_camera.hpp"
 #include "rainbow/shared/logs/log.hpp"
 
+#include "../core/renderer_config.hpp"
+
 #include "convert_transform.hpp"
 #include "convert_filter.hpp"
+
+#undef near
+#undef far
 
 namespace rainbow::renderer::converter {
 
@@ -27,11 +32,18 @@ namespace rainbow::renderer::converter {
 		const std::shared_ptr<metascene::cameras::perspective_camera>& camera,
 		const std::shared_ptr<metascene::cameras::film>& film)
 	{
-		const auto system = camera->system == metascene::cameras::coordinate_system::right_hand ?
-			cameras::coordinate_system::right_hand : cameras::coordinate_system::left_hand;
+		const auto width = static_cast<real>(film->width);
+		const auto height = static_cast<real>(film->height);
+		const auto fov = radians(camera->fov);
 		
-		return std::make_shared<perspective_camera>(
-			create_film(film), read_transform(camera->transform), system, radians(camera->fov));
+		const auto projective =
+			renderer_config::camera_system == coordinate_system::right_hand ?
+			perspective_right_hand(fov, width, height, camera->near, camera->far) :
+			perspective_left_hand(fov, width, height, camera->near, camera->far);
+
+		const auto screen_window = bound2(vector2(-1), vector2(1));
+
+		return std::make_shared<perspective_camera>(create_film(film), screen_window, projective, read_transform(camera->transform));
 	}
 	
 	std::shared_ptr<camera> create_camera(

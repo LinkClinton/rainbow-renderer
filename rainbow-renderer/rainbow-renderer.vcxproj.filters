@@ -53,6 +53,9 @@
     <ClCompile Include="converter\convert_texture.cpp">
       <Filter>converter</Filter>
     </ClCompile>
+    <ClCompile Include="core\renderer_config.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="importers">
@@ -116,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="converter\convert_texture.hpp">
       <Filter>converter</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderer_config.hpp">
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

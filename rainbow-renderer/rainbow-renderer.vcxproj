@@ -177,6 +177,7 @@
     <ClCompile Include="converter\convert_spectrum.cpp" />
     <ClCompile Include="converter\convert_texture.cpp" />
     <ClCompile Include="converter\convert_transform.cpp" />
+    <ClCompile Include="core\renderer_config.cpp" />
     <ClCompile Include="core\renderer_scene.cpp" />
     <ClCompile Include="importers\image_importer.cpp" />
     <ClCompile Include="importers\mitsuba_importer.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="converter\convert_spectrum.hpp" />
     <ClInclude Include="converter\convert_texture.hpp" />
     <ClInclude Include="converter\convert_transform.hpp" />
+    <ClInclude Include="core\renderer_config.hpp" />
     <ClInclude Include="core\renderer_scene.hpp" />
     <ClInclude Include="importers\image_importer.hpp" />
     <ClInclude Include="importers\mitsuba_importer.hpp" />
