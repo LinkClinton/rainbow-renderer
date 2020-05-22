@@ -8,6 +8,7 @@ int main() {
 	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/cbox/cbox.xml");
 	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/veach_mi/mi.xml");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f8-10.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/lte-orb/lte-orb-silver.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/metal.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/arcsphere.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/microcity.pbrt");
@@ -16,8 +17,8 @@ int main() {
 	
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/lte-orb/lte-orb-silver.pbrt"); //normal bug
-	
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
+
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/uv-test.pbrt");
