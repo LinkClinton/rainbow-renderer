@@ -6,7 +6,7 @@ using namespace rainbow;
 int main() {
 	// these scenes are passed
 	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/cbox/cbox.xml");
-	const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/veach_mi/mi.xml");
+	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/veach_mi/mi.xml");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f8-10.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/lte-orb/lte-orb-silver.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/metal.pbrt");
@@ -20,6 +20,9 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 
+	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));
+	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
+	
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/uv-test.pbrt");

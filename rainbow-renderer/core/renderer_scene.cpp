@@ -8,7 +8,6 @@ namespace rainbow::renderer {
 
 	void renderer_scene::render_to(const std::string& filename) const
 	{
-		scene->build_emitters_distribution();
 		scene->build_accelerator();
 	
 		integrator->render(camera, scene);
