@@ -1,5 +1,6 @@
 #include "convert_material.hpp"
 
+#include "meta-scene/materials/substrate_material.hpp"
 #include "meta-scene/materials/plastic_material.hpp"
 #include "meta-scene/materials/diffuse_material.hpp"
 #include "meta-scene/materials/mirror_material.hpp"
@@ -8,6 +9,8 @@
 #include "meta-scene/materials/uber_material.hpp"
 
 #include "rainbow/textures/constant_texture.hpp"
+
+#include "rainbow/materials/substrate_material.hpp"
 #include "rainbow/materials/plastic_material.hpp"
 #include "rainbow/materials/mirror_material.hpp"
 #include "rainbow/materials/matte_material.hpp"
@@ -22,6 +25,16 @@ using namespace rainbow::textures;
 
 namespace rainbow::renderer::converter {
 
+	std::shared_ptr<material> create_substrate_material(const std::shared_ptr<metascene::materials::substrate_material>& material)
+	{
+		return std::make_shared<substrate_material>(
+			create_spectrum_texture(material->specular),
+			create_spectrum_texture(material->diffuse),
+			create_real_texture(material->roughness_u),
+			create_real_texture(material->roughness_v),
+			material->remapped_roughness_to_alpha);
+	}
+	
 	std::shared_ptr<material> create_diffuse_material(const std::shared_ptr<metascene::materials::diffuse_material>& material)
 	{
 		return std::make_shared<matte_material>(
@@ -50,7 +63,8 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<glass_material>(
 			create_spectrum_texture(material->reflectance),
 			create_spectrum_texture(material->transmission),
-			create_vector2_texture(material->roughness_u, material->roughness_v),
+			create_real_texture(material->roughness_u),
+			create_real_texture(material->roughness_v),
 			create_real_texture(material->eta),
 			material->remapped_roughness_to_alpha);
 	}
@@ -60,7 +74,8 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<metal_material>(
 			create_spectrum_texture(material->eta),
 			create_spectrum_texture(material->k),
-			create_vector2_texture(material->roughness_u, material->roughness_v),
+			create_real_texture(material->roughness_u),
+			create_real_texture(material->roughness_v),
 			material->remapped_roughness_to_alpha);
 	}
 
@@ -72,7 +87,8 @@ namespace rainbow::renderer::converter {
 			create_spectrum_texture(material->specular),
 			create_spectrum_texture(material->diffuse),
 			create_spectrum_texture(material->opacity),
-			create_vector2_texture(material->roughness_u, material->roughness_v),
+			create_real_texture(material->roughness_u),
+			create_real_texture(material->roughness_v),
 			create_real_texture(material->eta),
 			material->remapped_roughness_to_alpha);
 	}
@@ -80,6 +96,9 @@ namespace rainbow::renderer::converter {
 	std::shared_ptr<material> create_material(const std::shared_ptr<metascene::materials::material>& material)
 	{
 		if (material == nullptr) return nullptr;
+
+		if (material->type == metascene::materials::type::substrate)
+			return create_substrate_material(std::static_pointer_cast<metascene::materials::substrate_material>(material));
 		
 		if (material->type == metascene::materials::type::diffuse)
 			return create_diffuse_material(std::static_pointer_cast<metascene::materials::diffuse_material>(material));

@@ -16,10 +16,6 @@ namespace rainbow {
 
 			std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::texture>& texture);
 
-			std::shared_ptr<texture2d<vector2>> create_vector2_texture(
-				const std::shared_ptr<metascene::textures::texture>& texture0,
-				const std::shared_ptr<metascene::textures::texture>& texture1);
-			
 			std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::texture>& texture); 
 		}
 		

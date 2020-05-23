@@ -56,6 +56,9 @@
     <ClCompile Include="core\renderer_config.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\resource_cache.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="importers">
@@ -121,6 +124,9 @@
       <Filter>converter</Filter>
     </ClInclude>
     <ClInclude Include="core\renderer_config.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\resource_cache.hpp">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
