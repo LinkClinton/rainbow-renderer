@@ -27,7 +27,9 @@ namespace rainbow::renderer::converter {
 
 	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::scale_texture>& texture)
 	{
-		const auto base_texture = create_spectrum_texture(texture->base);
+		// because we cache the origin image texture to reduce the time of loading
+		// so if we will change the values of a image texture, we will copy it 
+		const auto base_texture = create_spectrum_texture(texture->base)->copy_to();
 		const auto scale_texture = std::static_pointer_cast<metascene::textures::constant_texture>(texture->scale);
 
 		if (scale_texture->value_type == metascene::textures::value_type::real)
