@@ -10,19 +10,18 @@
 #include "rainbow/shapes/mesh.hpp"
 #include "rainbow/shapes/disk.hpp"
 
-#include "../importers/obj_importer.hpp"
-#include "../importers/ply_importer.hpp"
+#include "../core/resource_cache.hpp"
 
 namespace rainbow::renderer::converter {
 
 	std::shared_ptr<shape> create_obj_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
 	{
-		return importers::load_obj_mesh(mesh->filename)[0];
+		return resource_cache::read_obj_mesh(mesh->filename);
 	}
 
 	std::shared_ptr<shape> create_ply_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
 	{
-		return importers::load_ply_mesh(mesh->filename);
+		return resource_cache::read_ply_mesh(mesh->filename);
 	}
 	
 	std::shared_ptr<shape> create_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
