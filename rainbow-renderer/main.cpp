@@ -1,8 +1,6 @@
 #include "importers/mitsuba_importer.hpp"
 #include "importers/pbrt_importer.hpp"
 
-#include "rainbow/emitters/surface_light.hpp"
-
 using namespace rainbow;
 
 int main() {
@@ -19,14 +17,14 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/killeroos/killeroo-gold.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/chopper-titan/chopper-titan.pbrt");
-	
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/tt/tt.pbrt"); // not support bump mapping
+
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/buddha-fractal/buddha-fractal.pbrt"); //need update bvh
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/tt/tt.pbrt");
-
 	
+	scene.integrator->set_debug_trace_pixel(vector2i(1092, 350));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	

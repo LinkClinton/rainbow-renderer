@@ -43,7 +43,8 @@ namespace rainbow::renderer::converter {
 
 		const auto screen_window = bound2(vector2(-1), vector2(1));
 
-		return std::make_shared<perspective_camera>(create_film(film), screen_window, projective, read_transform(camera->transform));
+		return std::make_shared<perspective_camera>(create_film(film), screen_window, projective, read_transform(camera->transform),
+			camera->focus, camera->lens);
 	}
 	
 	std::shared_ptr<camera> create_camera(
