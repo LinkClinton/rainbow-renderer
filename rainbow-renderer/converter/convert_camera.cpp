@@ -25,7 +25,7 @@ namespace rainbow::renderer::converter {
 		const auto crop_window_min = vector2(0);
 		const auto crop_window_max = vector2(1);
 		
-		return std::make_shared<rainbow::film>(create_filter(film->filter), resolution, bound2(crop_window_min, crop_window_max));
+		return std::make_shared<rainbow::film>(create_filter(film->filter), resolution, bound2(crop_window_min, crop_window_max), film->scale);
 	}
 
 	std::shared_ptr<camera> create_perspective_camera(
