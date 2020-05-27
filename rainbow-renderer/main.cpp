@@ -23,6 +23,7 @@ int main() {
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt");
 	
 	//scene.integrator->set_debug_trace_pixel(vector2i(1092, 350));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));

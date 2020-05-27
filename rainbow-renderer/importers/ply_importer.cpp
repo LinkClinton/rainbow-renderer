@@ -109,7 +109,7 @@ namespace rainbow::renderer::importers {
 			}
 		}*/
 		
-		const auto indices = file.request_properties_from_element("face", { "vertex_indices" }, 3);
+		const auto indices = file.request_properties_from_element("face", { "vertex_indices" });
 
 		const auto positions = file.request_properties_from_element("vertex", { "x", "y", "z" });
 
