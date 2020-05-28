@@ -64,6 +64,9 @@ namespace rainbow::renderer::converter {
 	{
 		if (texture->type == metascene::textures::type::constant)
 			return create_real_texture(std::static_pointer_cast<metascene::textures::constant_texture>(texture));
+
+		if (texture->type == metascene::textures::type::image)
+			return create_real_texture(std::static_pointer_cast<metascene::textures::image_texture>(texture));
 		
 		return std::make_shared<constant_texture2d<real>>(static_cast<real>(0));
 	}

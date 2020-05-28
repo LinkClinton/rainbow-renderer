@@ -1,5 +1,7 @@
 #pragma once
 
+#include "meta-scene/shapes/mesh.hpp"
+
 #include "rainbow/shared/spectrums/spectrum.hpp"
 #include "rainbow/textures/image_texture.hpp"
 #include "rainbow/shapes/mesh.hpp"
@@ -23,7 +25,7 @@ namespace rainbow {
 
 			static std::shared_ptr<image_texture2d<real>> read_real_texture(const std::string& filename, bool gamma);
 
-			static std::shared_ptr<mesh> read_ply_mesh(const std::string& filename);
+			static std::shared_ptr<mesh> read_ply_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh);
 
 			static std::shared_ptr<mesh> read_obj_mesh(const std::string& filename);
 		};

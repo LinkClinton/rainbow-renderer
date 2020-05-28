@@ -88,7 +88,7 @@ namespace rainbow::renderer::importers {
 		}
 	}
 
-	std::shared_ptr<mesh> load_ply_mesh(const std::string& filename)
+	std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename)
 	{
 		auto stream = std::ifstream(filename, std::ios::binary);
 
@@ -125,19 +125,15 @@ namespace rainbow::renderer::importers {
 		
 		file.read(stream);
 
-		std::vector<unsigned> mesh_indices;
-
-		std::vector<vector3> mesh_positions;
-		std::vector<vector3> mesh_normals;
-		std::vector<vector3> mesh_uvs;
-
-		if (indices) read_unsigned_from_data(indices, mesh_indices);
+		auto mesh = std::make_shared<metascene::shapes::triangles>();
 		
-		if (positions) read_vector3_from_data(positions, mesh_positions);
-		if (normals) read_vector3_from_data(normals, mesh_normals);
-		if (uvs) read_vector2_from_data(uvs, mesh_uvs);
+		if (indices) read_unsigned_from_data(indices, mesh->indices);
+		
+		if (positions) read_vector3_from_data(positions, mesh->positions);
+		if (normals) read_vector3_from_data(normals, mesh->normals);
+		if (uvs) read_vector2_from_data(uvs, mesh->uvs);
 
-		return std::make_shared<mesh>(mesh_positions, std::vector<vector3>(), mesh_normals, mesh_uvs, mesh_indices);
+		return mesh;
 	}
 	
 }

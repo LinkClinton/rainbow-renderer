@@ -1,7 +1,9 @@
 #pragma once
 
-#include "rainbow/shapes/mesh.hpp"
+#include "meta-scene/shapes/triangles.hpp"
+#include "meta-scene/shapes/mesh.hpp"
 
+#include "rainbow/shapes/mesh.hpp"
 
 #include <string>
 
@@ -17,8 +19,7 @@ namespace rainbow {
 
 		namespace importers {
 
-			std::shared_ptr<mesh> load_ply_mesh(const std::string& filename);
-			
+			std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename);
 		}
 	}
 }

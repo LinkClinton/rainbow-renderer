@@ -23,9 +23,14 @@ int main() {
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt");
-	
-	//scene.integrator->set_debug_trace_pixel(vector2i(1092, 350));
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); no triangle list mesh
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // fourier material
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/contemporary-bathroom/contemporary-bathroom.pbrt"); // fourier material
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt"); //distant light, alpha
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt"); //alpha
+
+
+	//scene.integrator->set_debug_trace_pixel(vector2i(462, 249));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	

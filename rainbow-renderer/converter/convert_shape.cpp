@@ -11,6 +11,7 @@
 #include "rainbow/shapes/disk.hpp"
 
 #include "../core/resource_cache.hpp"
+#include "convert_texture.hpp"
 
 namespace rainbow::renderer::converter {
 
@@ -21,7 +22,7 @@ namespace rainbow::renderer::converter {
 
 	std::shared_ptr<shape> create_ply_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
 	{
-		return resource_cache::read_ply_mesh(mesh->filename);
+		return resource_cache::read_ply_mesh(mesh);
 	}
 	
 	std::shared_ptr<shape> create_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
@@ -50,6 +51,7 @@ namespace rainbow::renderer::converter {
 	std::shared_ptr<shape> create_triangles(const std::shared_ptr<metascene::shapes::triangles>& triangles)
 	{
 		return std::make_shared<mesh>(
+			triangles->mask == nullptr ? nullptr : create_real_texture(triangles->mask),
 			triangles->positions,
 			std::vector<vector3>(),
 			triangles->normals,
