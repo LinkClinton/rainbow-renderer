@@ -26,8 +26,8 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // fourier material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/contemporary-bathroom/contemporary-bathroom.pbrt"); // fourier material
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt"); //distant light, alpha
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt"); 
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 
 
 	//scene.integrator->set_debug_trace_pixel(vector2i(112, 936));
@@ -37,6 +37,7 @@ int main() {
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/uv-test.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/directional-test.pbrt");
 	
 	scene.render_to("image");
 
