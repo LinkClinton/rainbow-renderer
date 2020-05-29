@@ -4,6 +4,7 @@
 #include "meta-scene/materials/substrate_material.hpp"
 #include "meta-scene/materials/plastic_material.hpp"
 #include "meta-scene/materials/diffuse_material.hpp"
+#include "meta-scene/materials/mixture_material.hpp"
 #include "meta-scene/materials/mirror_material.hpp"
 #include "meta-scene/materials/glass_material.hpp"
 #include "meta-scene/materials/metal_material.hpp"
@@ -14,6 +15,7 @@
 #include "rainbow/materials/translucent_material.hpp"
 #include "rainbow/materials/substrate_material.hpp"
 #include "rainbow/materials/plastic_material.hpp"
+#include "rainbow/materials/mixture_material.hpp"
 #include "rainbow/materials/mirror_material.hpp"
 #include "rainbow/materials/matte_material.hpp"
 #include "rainbow/materials/glass_material.hpp"
@@ -106,6 +108,14 @@ namespace rainbow::renderer::converter {
 			material->remapped_roughness_to_alpha);
 	}
 
+	std::shared_ptr<material> create_mixture_material(const std::shared_ptr<metascene::materials::mixture_material>& material)
+	{
+		return std::make_shared<mixture_material>(
+			create_spectrum_texture(material->alpha),
+			create_material(material->materials[0]),
+			create_material(material->materials[1]));
+	}
+
 	std::shared_ptr<material> create_material(const std::shared_ptr<metascene::materials::material>& material)
 	{
 		if (material == nullptr) return nullptr;
@@ -122,6 +132,9 @@ namespace rainbow::renderer::converter {
 		if (material->type == metascene::materials::type::plastic)
 			return create_plastic_material(std::static_pointer_cast<metascene::materials::plastic_material>(material));
 
+		if (material->type == metascene::materials::type::mixture)
+			return create_mixture_material(std::static_pointer_cast<metascene::materials::mixture_material>(material));
+		
 		if (material->type == metascene::materials::type::mirror)
 			return create_mirror_material(std::static_pointer_cast<metascene::materials::mirror_material>(material));
 		
