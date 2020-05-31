@@ -13,24 +13,23 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/arcsphere.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/microcity.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/yeahright/yeahright.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame675.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame812.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/pbrt-book/book.pbrt"); // not support bump mapping
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/killeroos/killeroo-gold.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/chopper-titan/chopper-titan.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/tt/tt.pbrt"); // not support bump mapping
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/buddha-fractal/buddha-fractal.pbrt");
-
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // replace fourier material to mixture material
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt");
+	
 	// these scenes should test again
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); no triangle list mesh
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // fourier material
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/contemporary-bathroom/contemporary-bathroom.pbrt"); // fourier material
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
-	
 
-	//scene.integrator->set_debug_trace_pixel(vector2i(164, 258));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
@@ -39,6 +38,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/uv-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/directional-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/mixture-test.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/glass-test.pbrt");
 	
 	scene.render_to("image");
 
