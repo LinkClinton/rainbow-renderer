@@ -24,14 +24,19 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/buddha-fractal/buddha-fractal.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // replace fourier material to mixture material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/crown/crown.pbrt"); // not support bump mapping
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/crown/crown.pbrt"); // not support bump mapping
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ecosys/ecosys.pbrt"); //not support windy texture and bump mapping
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bmw-m6/bmw-m6.pbrt"); // replace fourier material to substrate material
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/vw-van/vw-van.pbrt"); // replace fourier material to matte material
 	
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); no triangle list mesh
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); //no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
 	
-	//scene.integrator->set_debug_trace_pixel(vector2i(356, 207));
+	//scene.integrator->set_debug_trace_pixel(vector2i(1039, 640));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
 	// these scenes are used for test properties
