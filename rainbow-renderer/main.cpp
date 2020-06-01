@@ -22,15 +22,16 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/chopper-titan/chopper-titan.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/tt/tt.pbrt"); // not support bump mapping
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/buddha-fractal/buddha-fractal.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // replace fourier material to mixture material
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bathroom/bathroom.pbrt"); // replace fourier material to mixture material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/landscape/view-0.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/crown/crown.pbrt"); // not support bump mapping
 	
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
-
-	//scene.integrator->set_debug_trace_pixel(vector2i(1188, 421));
+	
+	//scene.integrator->set_debug_trace_pixel(vector2i(356, 207));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
 	// these scenes are used for test properties

@@ -1,10 +1,12 @@
 #include "convert_texture.hpp"
 
 #include "meta-scene/textures/constant_texture.hpp"
+#include "meta-scene/textures/mixture_texture.hpp"
 #include "meta-scene/textures/image_texture.hpp"
 #include "meta-scene/textures/scale_texture.hpp"
 
 #include "rainbow/textures/constant_texture.hpp"
+#include "rainbow/textures/mixture_texture.hpp"
 #include "rainbow/textures/image_texture.hpp"
 #include "rainbow/textures/scale_texture.hpp"
 
@@ -20,6 +22,14 @@ namespace rainbow::renderer::converter {
 			return std::make_shared<constant_texture2d<spectrum>>(spectrum(texture->real));
 		
 		return std::make_shared<constant_texture2d<spectrum>>(read_spectrum(texture->spectrum));
+	}
+
+	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::mixture_texture>& texture)
+	{
+		return std::make_shared<mixture_texture2d<spectrum>>(
+			create_spectrum_texture(texture->texture0),
+			create_spectrum_texture(texture->texture1),
+			create_real_texture(texture->alpha));
 	}
 
 	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::image_texture>& texture)
@@ -39,6 +49,9 @@ namespace rainbow::renderer::converter {
 		if (texture->type == metascene::textures::type::constant)
 			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::constant_texture>(texture));
 
+		if (texture->type == metascene::textures::type::mixture)
+			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::mixture_texture>(texture));
+
 		if (texture->type == metascene::textures::type::image)
 			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::image_texture>(texture));
 
@@ -55,6 +68,14 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<constant_texture2d<real>>(texture->real);
 	}
 
+	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::mixture_texture>& texture)
+	{
+		return std::make_shared<mixture_texture2d<real>>(
+			create_real_texture(texture->texture0),
+			create_real_texture(texture->texture1),
+			create_real_texture(texture->alpha));
+	}
+	
 	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::image_texture>& texture)
 	{
 		return resource_cache::read_real_texture(texture->filename, texture->gamma);
@@ -65,6 +86,9 @@ namespace rainbow::renderer::converter {
 		if (texture->type == metascene::textures::type::constant)
 			return create_real_texture(std::static_pointer_cast<metascene::textures::constant_texture>(texture));
 
+		if (texture->type == metascene::textures::type::mixture)
+			return create_real_texture(std::static_pointer_cast<metascene::textures::mixture_texture>(texture));
+		
 		if (texture->type == metascene::textures::type::image)
 			return create_real_texture(std::static_pointer_cast<metascene::textures::image_texture>(texture));
 		
