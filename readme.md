@@ -20,7 +20,7 @@ git submodule update --init --recursive
 
 ## Scene
 
-Now only support part of `mitsuba` scene format and part of `pbrt-v3` scene. See more in [meta-scene](https://github.com/LinkClinton/meta-scene). It is a library to load different scene format.
+Now only support part of `mitsuba` scene format and the most of `pbrt-v3` scene. See more in [meta-scene](https://github.com/LinkClinton/meta-scene). It is a library to load different scene format.
 
 ## ThirdParties
 
@@ -32,14 +32,17 @@ Now only support part of `mitsuba` scene format and part of `pbrt-v3` scene. See
 
 ## Gallery
 
+You can click [here](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes) to see more.
+
 [A Mitsuba conversion of the classic Cornell Box scene.](http://mitsuba-renderer.org/download.html)
 
-![cbox](./gallery/cbox.png)
+![cbox](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/cbox.png)
 
-[Multiple importance sampling test — based on a scene by Eric Veach](http://mitsuba-renderer.org/download.html)
+[Bmw-m6](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/bmw-m6)
 
-![mi](./gallery/mi.png)
+![bmw-m6](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/bmw-m6.png)
 
-[Dragon with Environment](https://pbrt.org/resources.html)
+[Landscape](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/landscape)
 
-![dragon-32spp](./gallery/f8-10.png)
+![landscape](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/view-0.png)
+
