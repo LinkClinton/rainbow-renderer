@@ -1,6 +1,7 @@
 #include "convert_material.hpp"
 
 #include "meta-scene/materials/translucent_material.hpp"
+#include "meta-scene/materials/subsurface_material.hpp"
 #include "meta-scene/materials/substrate_material.hpp"
 #include "meta-scene/materials/plastic_material.hpp"
 #include "meta-scene/materials/diffuse_material.hpp"
@@ -13,6 +14,7 @@
 #include "rainbow/textures/constant_texture.hpp"
 
 #include "rainbow/materials/translucent_material.hpp"
+#include "rainbow/materials/subsurface_material.hpp"
 #include "rainbow/materials/substrate_material.hpp"
 #include "rainbow/materials/plastic_material.hpp"
 #include "rainbow/materials/mixture_material.hpp"
@@ -38,6 +40,19 @@ namespace rainbow::renderer::converter {
 			create_spectrum_texture(material->diffuse),
 			create_real_texture(material->roughness),
 			material->remapped_roughness_to_alpha);
+	}
+
+	std::shared_ptr<material> create_subsurface_material(const std::shared_ptr<metascene::materials::subsurface_material>& material)
+	{
+		return std::make_shared<subsurface_material>(
+			create_spectrum_texture(material->transmission),
+			create_spectrum_texture(material->reflectance),
+			create_spectrum_texture(material->sigma_a),
+			create_spectrum_texture(material->sigma_s),
+			create_real_texture(material->roughness_u),
+			create_real_texture(material->roughness_v),
+			create_real_texture(material->eta),
+			material->scale, material->remapped_roughness_to_alpha);
 	}
 	
 	std::shared_ptr<material> create_substrate_material(const std::shared_ptr<metascene::materials::substrate_material>& material)
@@ -122,6 +137,9 @@ namespace rainbow::renderer::converter {
 
 		if (material->type == metascene::materials::type::translucent)
 			return create_translucent_material(std::static_pointer_cast<metascene::materials::translucent_material>(material));
+
+		if (material->type == metascene::materials::type::subsurface)
+			return create_subsurface_material(std::static_pointer_cast<metascene::materials::subsurface_material>(material));
 		
 		if (material->type == metascene::materials::type::substrate)
 			return create_substrate_material(std::static_pointer_cast<metascene::materials::substrate_material>(material));
