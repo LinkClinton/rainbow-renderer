@@ -29,8 +29,10 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bmw-m6/bmw-m6.pbrt"); // replace fourier material to substrate material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/vw-van/vw-van.pbrt"); // replace fourier material to matte material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sssdragon/dragon_10.pbrt"); 
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cbox-sss/cbox.pbrt");
-
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cbox-sss/cbox.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/ballpile.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
+	
 	
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");

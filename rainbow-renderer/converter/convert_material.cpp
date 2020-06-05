@@ -48,7 +48,7 @@ namespace rainbow::renderer::converter {
 			create_spectrum_texture(material->transmission),
 			create_spectrum_texture(material->reflectance),
 			create_spectrum_texture(material->diffuse),
-			create_spectrum_texture(material->dmfp),
+			create_spectrum_texture(material->mfp),
 			create_real_texture(material->roughness_u),
 			create_real_texture(material->roughness_v),
 			create_real_texture(material->eta),
