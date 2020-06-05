@@ -47,12 +47,12 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<subsurface_material>(
 			create_spectrum_texture(material->transmission),
 			create_spectrum_texture(material->reflectance),
-			create_spectrum_texture(material->sigma_a),
-			create_spectrum_texture(material->sigma_s),
+			create_spectrum_texture(material->diffuse),
+			create_spectrum_texture(material->dmfp),
 			create_real_texture(material->roughness_u),
 			create_real_texture(material->roughness_v),
 			create_real_texture(material->eta),
-			material->scale, material->remapped_roughness_to_alpha);
+			material->remapped_roughness_to_alpha);
 	}
 	
 	std::shared_ptr<material> create_substrate_material(const std::shared_ptr<metascene::materials::substrate_material>& material)
