@@ -46,3 +46,6 @@ You can click [here](https://github.com/LinkClinton/repository-data/tree/master/
 
 ![landscape](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/view-0.png)
 
+[Dragon](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/dragon)
+
+![sssdragon](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/sssdragon-mfp-0.25.png)

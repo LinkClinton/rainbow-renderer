@@ -31,7 +31,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sssdragon/dragon_10.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cbox-sss/cbox.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/ballpile.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
 	
 	
 	// these scenes should test again
