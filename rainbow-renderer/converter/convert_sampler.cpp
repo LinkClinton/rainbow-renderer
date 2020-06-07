@@ -2,8 +2,9 @@
 
 #include "meta-scene/samplers/random_sampler.hpp"
 
-#include "rainbow/samplers/random_sampler.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-cpu/samplers/random_sampler.hpp"
+
+#include "rainbow-core/logs/log.hpp"
 
 namespace rainbow::renderer::converter {
 

@@ -1,6 +1,6 @@
 #include "obj_importer.hpp"
 
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-core/logs/log.hpp"
 
 #ifdef __OBJ_IMPORTER__
 
@@ -10,7 +10,7 @@
 
 #ifdef __OBJ_IMPORTER__
 
-std::vector<std::shared_ptr<rainbow::mesh>> rainbow::renderer::importers::load_obj_mesh(const std::string& file_name)
+std::vector<std::shared_ptr<mesh>> rainbow::renderer::importers::load_obj_mesh(const std::string& file_name)
 {
 	std::vector<tinyobj::material_t> materials;
 	std::vector<tinyobj::shape_t> shapes;

@@ -3,9 +3,9 @@
 #include "meta-scene/integrators/direct_integrator.hpp"
 #include "meta-scene/integrators/path_integrator.hpp"
 
-#include "rainbow/integrators/direct_integrator.hpp"
-#include "rainbow/integrators/path_integrator.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-core/logs/log.hpp"
+#include "rainbow-cpu/integrators/direct_integrator.hpp"
+#include "rainbow-cpu/integrators/path_integrator.hpp"
 
 namespace rainbow::renderer::converter {
 

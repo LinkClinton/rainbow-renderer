@@ -2,7 +2,7 @@
 
 #include "../core/renderer_config.hpp"
 
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-core/logs/log.hpp"
 
 #ifdef __PBRT_IMPORTER__
 

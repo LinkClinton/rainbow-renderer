@@ -2,18 +2,12 @@
 
 #include "meta-scene/materials/material.hpp"
 
-#include "rainbow/materials/material.hpp"
+#include "rainbow-cpu/materials/material.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::materials;
 
-	using namespace materials;
-	
-	namespace renderer {
+namespace rainbow::renderer::converter {
 
-		namespace converter {
+	std::shared_ptr<material> create_material(const std::shared_ptr<metascene::materials::material>& material);
 
-			std::shared_ptr<material> create_material(const std::shared_ptr<metascene::materials::material>& material);
-			
-		}
-	}
 }

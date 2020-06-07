@@ -2,18 +2,12 @@
 
 #include "meta-scene/spectrums/spectrum.hpp"
 
-#include "rainbow/shared/spectrums/spectrum.hpp"
+#include "rainbow-cpu/shared/spectrums/spectrum.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::shared::spectrums;
 
-	using namespace spectrums;
+namespace rainbow::renderer::converter {
+
+	spectrum read_spectrum(const std::shared_ptr<metascene::spectrums::spectrum>& spectrum);
 	
-	namespace renderer {
-
-		namespace converter {
-
-			spectrum read_spectrum(const std::shared_ptr<metascene::spectrums::spectrum>& spectrum);
-			
-		}
-	}
 }

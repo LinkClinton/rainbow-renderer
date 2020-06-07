@@ -2,18 +2,12 @@
 
 #include "meta-scene/emitters/emitter.hpp"
 
-#include "rainbow/emitters/emitter.hpp"
+#include "rainbow-cpu/emitters/emitter.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::emitters;
 
-	using namespace emitters;
+namespace rainbow::renderer::converter {
+
+	std::shared_ptr<emitter> create_emitter(const std::shared_ptr<metascene::emitters::emitter>& emitter);
 	
-	namespace renderer {
-
-		namespace converter {
-
-			std::shared_ptr<emitter> create_emitter(const std::shared_ptr<metascene::emitters::emitter>& emitter);
-			
-		}
-	}
 }

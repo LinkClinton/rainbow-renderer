@@ -4,10 +4,10 @@
 #include "meta-scene/emitters/directional_emitter.hpp"
 #include "meta-scene/emitters/surface_emitter.hpp"
 
-#include "rainbow/emitters/environment_light.hpp"
-#include "rainbow/emitters/directional_light.hpp"
-#include "rainbow/emitters/surface_light.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-core/logs/log.hpp"
+#include "rainbow-cpu/emitters/environment_light.hpp"
+#include "rainbow-cpu/emitters/directional_light.hpp"
+#include "rainbow-cpu/emitters/surface_light.hpp"
 
 #include "../importers/image_importer.hpp"
 

@@ -2,20 +2,14 @@
 
 #include "meta-scene/samplers/sampler.hpp"
 
-#include "rainbow/samplers/samplers.hpp"
+#include "rainbow-cpu/samplers/samplers.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::samplers;
 
-	using namespace samplers;
+namespace rainbow::renderer::converter {
+
+	std::shared_ptr<sampler1d> create_sampler1d(const std::shared_ptr<metascene::samplers::sampler>& sampler);
+
+	std::shared_ptr<sampler2d> create_sampler2d(const std::shared_ptr<metascene::samplers::sampler>& sampler);
 	
-	namespace renderer {
-
-		namespace converter {
-
-			std::shared_ptr<sampler1d> create_sampler1d(const std::shared_ptr<metascene::samplers::sampler>& sampler);
-
-			std::shared_ptr<sampler2d> create_sampler2d(const std::shared_ptr<metascene::samplers::sampler>& sampler);
-
-		}
-	}
 }

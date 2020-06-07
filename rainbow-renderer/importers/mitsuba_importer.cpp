@@ -1,7 +1,5 @@
 #include "mitsuba_importer.hpp"
 
-#include "rainbow/shared/logs/log.hpp"
-
 #ifdef __MITSUBA_IMPORTER__
 
 namespace rainbow::renderer::importers {

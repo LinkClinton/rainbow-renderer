@@ -4,16 +4,10 @@
 
 #include "../core/renderer_scene.hpp"
 
-namespace rainbow {
-
-	namespace renderer {
-
-		namespace importers {
+namespace rainbow::renderer::importers {
 
 #ifdef __MITSUBA_IMPORTER__
-			renderer_scene import_mitsuba_scene(const std::string& filename);
+	renderer_scene import_mitsuba_scene(const std::string& filename);
 #endif
 
-		}		
-	}
 }

@@ -7,9 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rainbow-renderer", "rainbow
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{63C01F05-F60A-4259-AD57-122646FFF0F0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rainbow", "libraries\rainbow\rainbow\rainbow.vcxproj", "{09054885-94A1-4E16-97DD-3D4EE700344E}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "meta-scene", "libraries\meta-scene\meta-scene\meta-scene.vcxproj", "{00DFDEC4-336E-4501-8980-C5D6354796BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rainbow-cpu", "libraries\rainbow\rainbow-cpu\rainbow-cpu.vcxproj", "{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rainbow-core", "libraries\rainbow\rainbow-core\rainbow-core.vcxproj", "{711D250B-FD81-464A-8645-B6D72EAE93A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +29,6 @@ Global
 		{5FF56D8B-E43F-4CE1-88A3-1557AA2D24D5}.Release|x64.Build.0 = Release|x64
 		{5FF56D8B-E43F-4CE1-88A3-1557AA2D24D5}.Release|x86.ActiveCfg = Release|Win32
 		{5FF56D8B-E43F-4CE1-88A3-1557AA2D24D5}.Release|x86.Build.0 = Release|Win32
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Debug|x64.ActiveCfg = Debug|x64
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Debug|x64.Build.0 = Debug|x64
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Debug|x86.ActiveCfg = Debug|Win32
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Debug|x86.Build.0 = Debug|Win32
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Release|x64.ActiveCfg = Release|x64
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Release|x64.Build.0 = Release|x64
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Release|x86.ActiveCfg = Release|Win32
-		{09054885-94A1-4E16-97DD-3D4EE700344E}.Release|x86.Build.0 = Release|Win32
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Debug|x64.ActiveCfg = Debug|x64
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Debug|x64.Build.0 = Debug|x64
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Debug|x86.ActiveCfg = Debug|Win32
@@ -43,13 +37,30 @@ Global
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Release|x64.Build.0 = Release|x64
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Release|x86.ActiveCfg = Release|Win32
 		{00DFDEC4-336E-4501-8980-C5D6354796BE}.Release|x86.Build.0 = Release|Win32
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Debug|x64.ActiveCfg = Debug|x64
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Debug|x64.Build.0 = Debug|x64
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Debug|x86.ActiveCfg = Debug|Win32
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Debug|x86.Build.0 = Debug|Win32
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Release|x64.ActiveCfg = Release|x64
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Release|x64.Build.0 = Release|x64
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Release|x86.ActiveCfg = Release|Win32
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1}.Release|x86.Build.0 = Release|Win32
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Debug|x64.ActiveCfg = Debug|x64
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Debug|x64.Build.0 = Debug|x64
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Debug|x86.ActiveCfg = Debug|Win32
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Debug|x86.Build.0 = Debug|Win32
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Release|x64.ActiveCfg = Release|x64
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Release|x64.Build.0 = Release|x64
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Release|x86.ActiveCfg = Release|Win32
+		{711D250B-FD81-464A-8645-B6D72EAE93A7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{09054885-94A1-4E16-97DD-3D4EE700344E} = {63C01F05-F60A-4259-AD57-122646FFF0F0}
 		{00DFDEC4-336E-4501-8980-C5D6354796BE} = {63C01F05-F60A-4259-AD57-122646FFF0F0}
+		{93A7BE0A-0EEA-4D94-BC66-FBE0A7977CF1} = {63C01F05-F60A-4259-AD57-122646FFF0F0}
+		{711D250B-FD81-464A-8645-B6D72EAE93A7} = {63C01F05-F60A-4259-AD57-122646FFF0F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DD18408-3D19-49F1-84C6-BE082A7ADF20}

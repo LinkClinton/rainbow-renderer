@@ -6,16 +6,10 @@
 
 #ifdef __PBRT_IMPORTER__
 
-namespace rainbow {
+namespace rainbow::renderer::importers {
 
-	namespace renderer {
+	renderer_scene import_pbrt_scene(const std::string& filename);
 
-		namespace importers {
-
-			renderer_scene import_pbrt_scene(const std::string& filename);
-			
-		}
-	}
 }
 
 #endif

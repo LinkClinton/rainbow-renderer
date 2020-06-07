@@ -8,6 +8,9 @@
 
 #include <fstream>
 
+using namespace rainbow::core::math;
+using namespace rainbow::core;
+
 namespace rainbow::renderer::importers {
 
 	size_t size_of_type(const tinyply::Type& type) {

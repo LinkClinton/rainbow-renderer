@@ -161,8 +161,11 @@
     <ProjectReference Include="..\libraries\meta-scene\meta-scene\meta-scene.vcxproj">
       <Project>{00dfdec4-336e-4501-8980-c5d6354796be}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\libraries\rainbow\rainbow\rainbow.vcxproj">
-      <Project>{09054885-94a1-4e16-97dd-3d4ee700344e}</Project>
+    <ProjectReference Include="..\libraries\rainbow\rainbow-core\rainbow-core.vcxproj">
+      <Project>{711d250b-fd81-464a-8645-b6d72eae93a7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libraries\rainbow\rainbow-cpu\rainbow-cpu.vcxproj">
+      <Project>{93a7be0a-0eea-4d94-bc66-fbe0a7977cf1}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

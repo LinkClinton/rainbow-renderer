@@ -2,8 +2,8 @@
 
 #include "meta-scene/cameras/perspective_camera.hpp"
 
-#include "rainbow/cameras/perspective_camera.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-cpu/cameras/perspective_camera.hpp"
+#include "rainbow-core/logs/log.hpp"
 
 #include "../core/renderer_config.hpp"
 
@@ -25,7 +25,7 @@ namespace rainbow::renderer::converter {
 		const auto crop_window_min = vector2(0);
 		const auto crop_window_max = vector2(1);
 		
-		return std::make_shared<rainbow::film>(create_filter(film->filter), resolution, bound2(crop_window_min, crop_window_max), film->scale);
+		return std::make_shared<cpus::cameras::film>(create_filter(film->filter), resolution, bound2(crop_window_min, crop_window_max), film->scale);
 	}
 
 	std::shared_ptr<camera> create_perspective_camera(

@@ -2,16 +2,12 @@
 
 #include "meta-scene/math/matrix4x4.hpp"
 
-#include "rainbow/shared/transform.hpp"
+#include "rainbow-cpu/shared/transform.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::shared;
 
-	namespace renderer {
+namespace rainbow::renderer::converter {
 
-		namespace converter {
-
-			transform read_transform(const metascene::math::matrix4x4& transform);
-			
-		}
-	}
+	transform read_transform(const metascene::math::matrix4x4& transform);
+	
 }

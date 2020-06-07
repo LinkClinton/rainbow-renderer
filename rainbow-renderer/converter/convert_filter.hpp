@@ -2,20 +2,14 @@
 
 #include "meta-scene/filters/filter.hpp"
 
-#include "rainbow/filters/filters.hpp"
+#include "rainbow-cpu/filters/filters.hpp"
 
 #include <memory>
 
-namespace rainbow {
+using namespace rainbow::cpus::filters;
 
-	using namespace filters;
-	
-	namespace renderer {
+namespace rainbow::renderer::converter {
 
-		namespace converter {
-			
-			std::shared_ptr<filter> create_filter(const std::shared_ptr<metascene::filters::filter>& filter);
-			
-		}
-	}
+	std::shared_ptr<filter> create_filter(const std::shared_ptr<metascene::filters::filter>& filter);
+
 }

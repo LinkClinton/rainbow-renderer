@@ -1,6 +1,6 @@
 #pragma once
 
-#include "rainbow/shapes/mesh.hpp"
+#include "rainbow-cpu/shapes/mesh.hpp"
 
 #include <string>
 #include <memory>
@@ -8,18 +8,12 @@
 
 #define __OBJ_IMPORTER__
 
-namespace rainbow {
+using namespace rainbow::cpus::shapes;
 
-	using namespace shapes;
-
-	namespace renderer {
-
-		namespace importers {
+namespace rainbow::renderer::importers {
 
 #ifdef __OBJ_IMPORTER__
-			std::vector<std::shared_ptr<mesh>> load_obj_mesh(const std::string& file_name);
+	std::vector<std::shared_ptr<mesh>> load_obj_mesh(const std::string& file_name);
 #endif
 
-		}
-	}
 }

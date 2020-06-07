@@ -3,20 +3,15 @@
 #include "meta-scene/entity.hpp"
 #include "meta-scene/scene.hpp"
 
-#include "rainbow/scenes/entity.hpp"
-#include "rainbow/scenes/scene.hpp"
+#include "rainbow-cpu/scenes/entity.hpp"
+#include "rainbow-cpu/scenes/scene.hpp"
 
-namespace rainbow {
+using namespace rainbow::cpus::scenes;
 
-	using namespace scenes;
-	
-	namespace renderer {
+namespace rainbow::renderer::converter {
 
-		namespace converter {
+	std::shared_ptr<entity> create_entity(const std::shared_ptr<metascene::entity>& entity);
 
-			std::shared_ptr<entity> create_entity(const std::shared_ptr<metascene::entity>& entity);
+	std::shared_ptr<scene> create_scene(const std::shared_ptr<metascene::scene>& meta_scene);
 
-			std::shared_ptr<scene> create_scene(const std::shared_ptr<metascene::scene>& meta_scene);
-		}
-	}
 }

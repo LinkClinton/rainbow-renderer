@@ -3,9 +3,9 @@
 #include "meta-scene/filters/gaussian_filter.hpp"
 #include "meta-scene/filters/box_filter.hpp"
 
-#include "rainbow/filters/gaussian_filter.hpp"
-#include "rainbow/filters/box_filter.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-core/logs/log.hpp"
+#include "rainbow-cpu/filters/gaussian_filter.hpp"
+#include "rainbow-cpu/filters/box_filter.hpp"
 
 namespace rainbow::renderer::converter {
 

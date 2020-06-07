@@ -11,23 +11,24 @@
 #include "meta-scene/materials/metal_material.hpp"
 #include "meta-scene/materials/uber_material.hpp"
 
-#include "rainbow/textures/constant_texture.hpp"
+#include "rainbow-cpu/textures/constant_texture.hpp"
 
-#include "rainbow/materials/translucent_material.hpp"
-#include "rainbow/materials/subsurface_material.hpp"
-#include "rainbow/materials/substrate_material.hpp"
-#include "rainbow/materials/plastic_material.hpp"
-#include "rainbow/materials/mixture_material.hpp"
-#include "rainbow/materials/mirror_material.hpp"
-#include "rainbow/materials/matte_material.hpp"
-#include "rainbow/materials/glass_material.hpp"
-#include "rainbow/materials/metal_material.hpp"
-#include "rainbow/materials/uber_material.hpp"
-#include "rainbow/shared/logs/log.hpp"
+#include "rainbow-cpu/materials/translucent_material.hpp"
+#include "rainbow-cpu/materials/subsurface_material.hpp"
+#include "rainbow-cpu/materials/substrate_material.hpp"
+#include "rainbow-cpu/materials/plastic_material.hpp"
+#include "rainbow-cpu/materials/mixture_material.hpp"
+#include "rainbow-cpu/materials/mirror_material.hpp"
+#include "rainbow-cpu/materials/matte_material.hpp"
+#include "rainbow-cpu/materials/glass_material.hpp"
+#include "rainbow-cpu/materials/metal_material.hpp"
+#include "rainbow-cpu/materials/uber_material.hpp"
+
+#include "rainbow-core/logs/log.hpp"
 
 #include "convert_texture.hpp"
 
-using namespace rainbow::textures;
+using namespace rainbow::cpus::textures;
 
 namespace rainbow::renderer::converter {
 

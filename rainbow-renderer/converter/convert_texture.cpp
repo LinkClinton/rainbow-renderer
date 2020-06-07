@@ -5,10 +5,10 @@
 #include "meta-scene/textures/image_texture.hpp"
 #include "meta-scene/textures/scale_texture.hpp"
 
-#include "rainbow/textures/constant_texture.hpp"
-#include "rainbow/textures/mixture_texture.hpp"
-#include "rainbow/textures/image_texture.hpp"
-#include "rainbow/textures/scale_texture.hpp"
+#include "rainbow-cpu/textures/constant_texture.hpp"
+#include "rainbow-cpu/textures/mixture_texture.hpp"
+#include "rainbow-cpu/textures/image_texture.hpp"
+#include "rainbow-cpu/textures/scale_texture.hpp"
 
 #include "../core/resource_cache.hpp"
 

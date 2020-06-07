@@ -5,10 +5,10 @@
 #include "meta-scene/shapes/mesh.hpp"
 #include "meta-scene/shapes/disk.hpp"
 
-#include "rainbow/shared/logs/log.hpp"
-#include "rainbow/shapes/sphere.hpp"
-#include "rainbow/shapes/mesh.hpp"
-#include "rainbow/shapes/disk.hpp"
+#include "rainbow-cpu/shapes/sphere.hpp"
+#include "rainbow-cpu/shapes/mesh.hpp"
+#include "rainbow-cpu/shapes/disk.hpp"
+#include "rainbow-core/logs/log.hpp"
 
 #include "../core/resource_cache.hpp"
 #include "convert_texture.hpp"
@@ -40,12 +40,12 @@ namespace rainbow::renderer::converter {
 
 	std::shared_ptr<shape> create_sphere(const std::shared_ptr<metascene::shapes::sphere>& sphere)
 	{
-		return std::make_shared<shapes::sphere>(sphere->radius, sphere->reverse_orientation);
+		return std::make_shared<cpus::shapes::sphere>(sphere->radius, sphere->reverse_orientation);
 	}
 
 	std::shared_ptr<shape> create_disk(const std::shared_ptr<metascene::shapes::disk>& disk)
 	{
-		return std::make_shared<shapes::disk>(disk->radius, disk->height, disk->reverse_orientation);
+		return std::make_shared<cpus::shapes::disk>(disk->radius, disk->height, disk->reverse_orientation);
 	}
 
 	std::shared_ptr<shape> create_triangles(const std::shared_ptr<metascene::shapes::triangles>& triangles)

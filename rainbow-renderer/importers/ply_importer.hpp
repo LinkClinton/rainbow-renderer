@@ -3,7 +3,7 @@
 #include "meta-scene/shapes/triangles.hpp"
 #include "meta-scene/shapes/mesh.hpp"
 
-#include "rainbow/shapes/mesh.hpp"
+#include "rainbow-cpu/shapes/mesh.hpp"
 
 #include <string>
 
@@ -11,17 +11,10 @@
 #ifndef __PLY_IMPORTER__
 #else
 
-namespace rainbow {
+namespace rainbow::renderer::importers {
 
-	using namespace shapes;
+	std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename);
 	
-	namespace renderer {
-
-		namespace importers {
-
-			std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename);
-		}
-	}
 }
 
 #endif
