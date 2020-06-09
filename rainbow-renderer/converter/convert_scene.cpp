@@ -4,6 +4,7 @@
 
 #include "convert_material.hpp"
 #include "convert_emitter.hpp"
+#include "convert_medium.hpp"
 #include "convert_shape.hpp"
 
 namespace rainbow::renderer::converter {
@@ -11,7 +12,8 @@ namespace rainbow::renderer::converter {
 	std::shared_ptr<entity> create_entity(const std::shared_ptr<metascene::entity>& entity)
 	{
 		return std::make_shared<cpus::scenes::entity>(
-			create_material(entity->material), create_emitter(entity->emitter), create_shape(entity->shape), 
+			create_material(entity->material), create_emitter(entity->emitter), 
+			create_shape(entity->shape), create_media(entity->media),
 			read_transform(entity->transform));
 	}
 

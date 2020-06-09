@@ -5,7 +5,7 @@ using namespace rainbow;
 
 int main() {
 	// these scenes are passed
-	const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/cbox/cbox.xml");
+	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/cbox/cbox.xml");
 	//const auto scene = renderer::importers::import_mitsuba_scene("./../scenes/veach_mi/mi.xml");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f8-10.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/lte-orb/lte-orb-silver.pbrt");
@@ -40,7 +40,8 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
-	
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
+
 	//scene.integrator->set_debug_trace_pixel(vector2i(533, 234));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	

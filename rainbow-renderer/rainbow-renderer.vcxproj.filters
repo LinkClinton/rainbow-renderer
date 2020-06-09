@@ -59,6 +59,9 @@
     <ClCompile Include="core\resource_cache.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="converter\convert_medium.cpp">
+      <Filter>converter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="importers">
@@ -128,6 +131,9 @@
     </ClInclude>
     <ClInclude Include="core\resource_cache.hpp">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="converter\convert_medium.hpp">
+      <Filter>converter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
