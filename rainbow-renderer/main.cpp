@@ -32,6 +32,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cbox-sss/cbox.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/ballpile.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
 	
 	
 	// these scenes should test again
@@ -40,9 +41,10 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee-splash/splash.pbrt");
 
-	//scene.integrator->set_debug_trace_pixel(vector2i(533, 234));
+	
+	//scene.integrator->set_debug_trace_pixel(vector2i(517, 233));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
 	// these scenes are used for test properties
