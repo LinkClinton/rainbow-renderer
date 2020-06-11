@@ -35,7 +35,11 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee-splash/splash.pbrt"); // the distance of environment is fixed
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dambreak/dambreak0.pbrt");
-
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cloud/cloud.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cloud/smoke.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-084.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-184.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-284.pbrt");
 	
 	// these scenes should test again
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
@@ -43,12 +47,8 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cloud/cloud.pbrt");
+	
 
-	
-	scene.integrator->set_debug_trace_pixel(vector2i(426, 485));
-	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
-	
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/uv-test.pbrt");
@@ -56,6 +56,9 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/mixture-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/glass-test.pbrt");
 
+	scene.integrator->set_debug_trace_pixel(vector2i(326, 400));
+	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
+	
 	scene.render_to("image");
 
 	system("pause");
