@@ -158,17 +158,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libraries\meta-scene\meta-scene\meta-scene.vcxproj">
-      <Project>{00dfdec4-336e-4501-8980-c5d6354796be}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\libraries\rainbow\rainbow-core\rainbow-core.vcxproj">
-      <Project>{711d250b-fd81-464a-8645-b6d72eae93a7}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\libraries\rainbow\rainbow-cpu\rainbow-cpu.vcxproj">
-      <Project>{93a7be0a-0eea-4d94-bc66-fbe0a7977cf1}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="converter\convert_camera.cpp" />
     <ClCompile Include="converter\convert_emitter.cpp" />
     <ClCompile Include="converter\convert_filter.cpp" />
@@ -212,6 +201,17 @@
     <ClInclude Include="importers\obj_importer.hpp" />
     <ClInclude Include="importers\pbrt_importer.hpp" />
     <ClInclude Include="importers\ply_importer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libraries\meta-scene\meta-scene\meta-scene.vcxproj">
+      <Project>{00dfdec4-336e-4501-8980-c5d6354796be}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libraries\rainbow\rainbow-core\rainbow-core.vcxproj">
+      <Project>{711d250b-fd81-464a-8645-b6d72eae93a7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libraries\rainbow\rainbow-cpu\rainbow-cpu.vcxproj">
+      <Project>{93a7be0a-0eea-4d94-bc66-fbe0a7977cf1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
