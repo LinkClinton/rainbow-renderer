@@ -2,10 +2,12 @@
 
 #include "meta-scene/shapes/triangles.hpp"
 #include "meta-scene/shapes/sphere.hpp"
+#include "meta-scene/shapes/curve.hpp"
 #include "meta-scene/shapes/mesh.hpp"
 #include "meta-scene/shapes/disk.hpp"
 
 #include "rainbow-cpu/shapes/sphere.hpp"
+#include "rainbow-cpu/shapes/curve.hpp"
 #include "rainbow-cpu/shapes/mesh.hpp"
 #include "rainbow-cpu/shapes/disk.hpp"
 #include "rainbow-core/logs/log.hpp"
@@ -43,6 +45,11 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<cpus::shapes::sphere>(sphere->radius, sphere->reverse_orientation);
 	}
 
+	std::shared_ptr<shape> create_curve(const std::shared_ptr<metascene::shapes::curve>& curve)
+	{
+		return std::make_shared<cpus::shapes::curve>(curve->control_points, curve->width, curve->u_min, curve->u_max, curve->reverse_orientation);
+	}
+	
 	std::shared_ptr<shape> create_disk(const std::shared_ptr<metascene::shapes::disk>& disk)
 	{
 		return std::make_shared<cpus::shapes::disk>(disk->radius, disk->height, disk->reverse_orientation);
@@ -70,6 +77,9 @@ namespace rainbow::renderer::converter {
 		if (shape->type == metascene::shapes::type::mesh)
 			return create_mesh(std::static_pointer_cast<metascene::shapes::mesh>(shape));
 
+		if (shape->type == metascene::shapes::type::curve)
+			return create_curve(std::static_pointer_cast<metascene::shapes::curve>(shape));
+		
 		if (shape->type == metascene::shapes::type::sphere)
 			return create_sphere(std::static_pointer_cast<metascene::shapes::sphere>(shape));
 
