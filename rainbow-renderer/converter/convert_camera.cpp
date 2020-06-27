@@ -42,9 +42,11 @@ namespace rainbow::renderer::converter {
 			perspective_left_hand(fov, width, height, camera->near, camera->far);
 
 		const auto screen_window = bound2(vector2(-1), vector2(1));
-
-		return std::make_shared<perspective_camera>(create_film(film), screen_window, projective, read_transform(camera->transform),
-			camera->focus, camera->lens);
+		const auto camera_system = renderer_config::camera_system == coordinate_system::right_hand ?
+			camera_system::right_hand : camera_system::left_hand;
+		
+		return std::make_shared<perspective_camera>(create_film(film), camera_system, screen_window, projective, 
+			read_transform(camera->transform), camera->focus, camera->lens);
 	}
 	
 	std::shared_ptr<camera> create_camera(
@@ -56,7 +58,6 @@ namespace rainbow::renderer::converter {
 
 		logs::error("unknown camera.");
 
-		return std::make_shared<perspective_camera>(
-			create_film(film), transform(), radians(static_cast<real>(45.0)));
+		return nullptr;
 	}
 }
