@@ -1,5 +1,6 @@
 #include "convert_integrator.hpp"
 
+#include "meta-scene/integrators/bidirectional_path_integrator.hpp"
 #include "meta-scene/integrators/photon_mapping_integrator.hpp"
 #include "meta-scene/integrators/volume_path_integrator.hpp"
 #include "meta-scene/integrators/direct_integrator.hpp"
@@ -7,6 +8,7 @@
 
 #include "rainbow-core/logs/log.hpp"
 
+#include "rainbow-cpu/integrators/bidirectional_path_integrator.hpp"
 #include "rainbow-cpu/integrators/photon_mapping_integrator.hpp"
 #include "rainbow-cpu/integrators/volume_path_integrator.hpp"
 #include "rainbow-cpu/integrators/direct_integrator.hpp"
@@ -38,6 +40,16 @@ namespace rainbow::renderer::converter {
 			integrator->iterations, integrator->depth,
 			integrator->photons, integrator->radius);
 	}
+
+	std::shared_ptr<integrator> create_bidirectional_path_integrator(
+		const std::shared_ptr<metascene::integrators::bidirectional_path_integrator>& integrator,
+		const std::shared_ptr<metascene::samplers::sampler>& sampler)
+	{
+		return std::make_shared<bidirectional_path_integrator>(
+			create_sampler2d(sampler),
+			create_sampler1d(sampler),
+			integrator->depth);
+	}
 	
 	std::shared_ptr<integrator> create_direct_integrator(
 		const std::shared_ptr<metascene::integrators::direct_integrator>& integrator,
@@ -51,6 +63,9 @@ namespace rainbow::renderer::converter {
 		const std::shared_ptr<metascene::integrators::integrator>& integrator,
 		const std::shared_ptr<metascene::samplers::sampler>& sampler)
 	{
+		if (integrator->type == metascene::integrators::type::bidirectional_path)
+			return create_bidirectional_path_integrator(std::static_pointer_cast<metascene::integrators::bidirectional_path_integrator>(integrator), sampler);
+		
 		if (integrator->type == metascene::integrators::type::photon_mapping)
 			return create_photon_mapping_integrator(std::static_pointer_cast<metascene::integrators::photon_mapping_integrator>(integrator), sampler);
 		

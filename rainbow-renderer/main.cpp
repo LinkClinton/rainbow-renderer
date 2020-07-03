@@ -28,10 +28,13 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ecosys/ecosys.pbrt"); //not support windy texture and bump mapping
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bmw-m6/bmw-m6.pbrt"); // replace fourier material to substrate material
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/vw-van/vw-van.pbrt"); // replace fourier material to matte material
+
+	// bssrdf 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sssdragon/dragon_10.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cbox-sss/cbox.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/ballpile.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
+
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee-splash/splash.pbrt"); // the distance of environment is fixed
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dambreak/dambreak0.pbrt");
@@ -45,17 +48,18 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase2/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
+	
 	
 	// these scenes should test again
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); //no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/volumetric-caustic/scene.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
 	
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
@@ -66,7 +70,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/curve-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/sppm-test.pbrt");
 	
-	//scene.integrator->set_debug_trace_pixel(vector2i(336, 349));
+	//scene.integrator->set_debug_trace_pixel(vector2i(144, 405));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
 	scene.render_to("image");
