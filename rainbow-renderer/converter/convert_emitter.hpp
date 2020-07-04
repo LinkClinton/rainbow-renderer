@@ -8,6 +8,6 @@ using namespace rainbow::cpus::emitters;
 
 namespace rainbow::renderer::converter {
 
-	std::shared_ptr<emitter> create_emitter(const std::shared_ptr<metascene::emitters::emitter>& emitter);
+	std::shared_ptr<emitter> create_emitter(const std::shared_ptr<metascene::emitters::emitter>& emitter, real radius);
 	
 }
