@@ -35,6 +35,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/structuresynth/ballpile.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/head/head.pbrt");
 
+	// volume scattering
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f11-14.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee-splash/splash.pbrt"); // the distance of environment is fixed
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dambreak/dambreak0.pbrt");
@@ -43,11 +44,13 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-084.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-184.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/smoke-plume/plume-284.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/volumetric-caustic/scene.pbrt");	
+	
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bedroom/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/kitchen/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase2/scene.pbrt"); 
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
@@ -59,7 +62,6 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sportscar/sportscar.pbrt"); //ply mesh
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/volumetric-caustic/scene.pbrt");
 	
 	// these scenes are used for test properties
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/xyz-test.pbrt");
@@ -69,6 +71,8 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/glass-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/curve-test.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/sppm-test.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/volume-test.pbrt");
+
 	
 	//scene.integrator->set_debug_trace_pixel(vector2i(144, 405));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
