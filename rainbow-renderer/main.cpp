@@ -48,16 +48,17 @@ int main() {
 	
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bedroom/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/kitchen/scene.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase2/scene.pbrt"); 
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
-	
+
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/veach-bidir/scene.pbrt");
 	
 	// these scenes should test again
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame300.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); //no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");
@@ -74,7 +75,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/basic-test/volume-test.pbrt");
 
 	
-	//scene.integrator->set_debug_trace_pixel(vector2i(144, 405));
+	//scene.integrator->set_debug_trace_pixel(vector2i(729, 466));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
 	
 	scene.render_to("image");

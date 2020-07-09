@@ -34,22 +34,14 @@ Now only support part of `mitsuba` scene format and the most of `pbrt-v3` scene.
 
 You can click [here](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes) to see more.
 
-[A Mitsuba conversion of the classic Cornell Box scene.](http://mitsuba-renderer.org/download.html)
+![cbox](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/volumetric-caustic.png)
 
-![cbox](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/cbox.png)
-
-[Bmw-m6](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/bmw-m6)
+![bunny-fur](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/bunny-fur.png)
 
 ![bmw-m6](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/bmw-m6.png)
 
-[Landscape](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/landscape)
-
 ![landscape](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/view-0.png)
 
-[Dragon](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/dragon)
-
 ![sssdragon](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/sssdragon-mfp-0.25.png)
-
-[Smoke](https://github.com/LinkClinton/repository-data/tree/master/rainbow-renderer/scenes/smoke-plume)
 
 ![somke](https://github.com/LinkClinton/repository-data/blob/master/rainbow-renderer/gallery/plume-084.png)
