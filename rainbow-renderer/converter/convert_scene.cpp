@@ -9,25 +9,25 @@
 
 namespace rainbow::renderer::converter {
 
-	std::shared_ptr<entity> create_entity(const std::shared_ptr<metascene::entity>& entity, real radius)
+	std::shared_ptr<entity> create_entity(const meta_scene::objects::entity& entity, real radius)
 	{
 		return std::make_shared<cpus::scenes::entity>(
-			create_material(entity->material), create_emitter(entity->emitter, radius), 
-			create_shape(entity->shape), create_media(entity->media),
-			read_transform(entity->transform));
+			create_material(entity.material), create_emitter(entity.light, radius), 
+			create_shape(entity.shape), create_media(entity.media),
+			read_transform(entity.transform));
 	}
 
-	std::shared_ptr<scene> create_scene(const std::shared_ptr<metascene::scene>& meta_scene)
+	std::shared_ptr<scene> create_scene(const meta_scene::scene& meta_scene)
 	{
 		const auto scene = std::make_shared<cpus::scenes::scene>();
 
-		std::vector<std::shared_ptr<metascene::entity>> special_emitters;
+		std::vector<meta_scene::objects::entity> special_emitters;
 		
-		for (const auto& entity : meta_scene->entities) {
+		for (const auto& entity : meta_scene.entities) {
 			// we skip the directional and environment emitter and create them later
-			if (entity->emitter != nullptr) {
-				if (entity->emitter->type == metascene::emitters::type::directional ||
-					entity->emitter->type == metascene::emitters::type::environment) {
+			if (entity.light != std::nullopt) {
+				if (entity.light->type == "directional" ||
+					entity.light->type == "environment") {
 
 					special_emitters.push_back(entity);
 					

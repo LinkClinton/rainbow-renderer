@@ -1,4 +1,3 @@
-#include "importers/mitsuba_importer.hpp"
 #include "importers/pbrt_importer.hpp"
 
 using namespace rainbow;
@@ -52,6 +51,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
 	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/glass-plate/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/veach-bidir/scene.pbrt");
@@ -59,6 +59,9 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/dragon/f0-0.pbrt");
 	
 	// these scenes should test again
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/glass-of-water/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/classroom/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame300.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame25.pbrt");

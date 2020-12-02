@@ -1,11 +1,5 @@
 #include "convert_shape.hpp"
 
-#include "meta-scene/shapes/triangles.hpp"
-#include "meta-scene/shapes/sphere.hpp"
-#include "meta-scene/shapes/curve.hpp"
-#include "meta-scene/shapes/mesh.hpp"
-#include "meta-scene/shapes/disk.hpp"
-
 #include "rainbow-cpu/shapes/sphere.hpp"
 #include "rainbow-cpu/shapes/curve.hpp"
 #include "rainbow-cpu/shapes/mesh.hpp"
@@ -17,74 +11,67 @@
 
 namespace rainbow::renderer::converter {
 
-	std::shared_ptr<shape> create_obj_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
+	std::shared_ptr<shape> create_obj_mesh(const meta_scene::objects::shape& mesh)
 	{
-		return resource_cache::read_obj_mesh(mesh->filename);
+		return resource_cache::read_obj_mesh(mesh.mesh.filename);
 	}
 
-	std::shared_ptr<shape> create_ply_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
+	std::shared_ptr<shape> create_ply_mesh(const meta_scene::objects::shape& mesh)
 	{
 		return resource_cache::read_ply_mesh(mesh);
 	}
 	
-	std::shared_ptr<shape> create_mesh(const std::shared_ptr<metascene::shapes::mesh>& mesh)
+	std::shared_ptr<shape> create_mesh(const meta_scene::objects::shape& mesh)
 	{
-		if (mesh->mesh_type == metascene::shapes::mesh_type::obj)
-			return create_obj_mesh(mesh);
-
-		if (mesh->mesh_type == metascene::shapes::mesh_type::ply)
-			return create_ply_mesh(mesh);
+		if (mesh.mesh.type == "obj") return create_obj_mesh(mesh);
+		if (mesh.mesh.type == "ply") return create_ply_mesh(mesh);
 		
 		logs::error("unknown mesh type.");
 
 		return nullptr;
 	}
 
-	std::shared_ptr<shape> create_sphere(const std::shared_ptr<metascene::shapes::sphere>& sphere)
+	std::shared_ptr<shape> create_sphere(const meta_scene::objects::shape& sphere)
 	{
-		return std::make_shared<cpus::shapes::sphere>(sphere->radius, sphere->reverse_orientation);
+		return std::make_shared<cpus::shapes::sphere>(sphere.sphere.radius, sphere.reverse_orientation);
 	}
 
-	std::shared_ptr<shape> create_curve(const std::shared_ptr<metascene::shapes::curve>& curve)
+	std::shared_ptr<shape> create_curve(const meta_scene::objects::shape& curve)
 	{
-		return std::make_shared<cpus::shapes::curve>(curve->control_points, curve->width, curve->u_min, curve->u_max, curve->reverse_orientation);
+		return std::make_shared<cpus::shapes::curve>(
+			curve.curve.control_points, 
+			curve.curve.width, 
+			curve.curve.u_min, 
+			curve.curve.u_max, 
+			curve.reverse_orientation);
 	}
 	
-	std::shared_ptr<shape> create_disk(const std::shared_ptr<metascene::shapes::disk>& disk)
+	std::shared_ptr<shape> create_disk(const meta_scene::objects::shape& disk)
 	{
-		return std::make_shared<cpus::shapes::disk>(disk->radius, disk->height, disk->reverse_orientation);
+		return std::make_shared<cpus::shapes::disk>(disk.disk.radius, disk.disk.height, disk.reverse_orientation);
 	}
 
-	std::shared_ptr<shape> create_triangles(const std::shared_ptr<metascene::shapes::triangles>& triangles)
+	std::shared_ptr<shape> create_triangles(const meta_scene::objects::shape& triangles)
 	{
 		return std::make_shared<mesh>(
-			triangles->mask == nullptr ? nullptr : create_real_texture(triangles->mask),
-			triangles->positions,
+			triangles.triangles.mask == std::nullopt ? nullptr : create_real_texture(triangles.triangles.mask.value()),
+			triangles.triangles.positions,
 			std::vector<vector3>(),
-			triangles->normals,
-			triangles->uvs,
-			triangles->indices,
-			triangles->reverse_orientation);
+			triangles.triangles.normals,
+			triangles.triangles.uvs,
+			triangles.triangles.indices,
+			triangles.reverse_orientation);
 	}
 	
-	std::shared_ptr<shape> create_shape(const std::shared_ptr<metascene::shapes::shape>& shape)
+	std::shared_ptr<shape> create_shape(const std::optional<meta_scene::objects::shape>& shape)
 	{
-		if (shape == nullptr) return nullptr;
+		if (!shape.has_value()) return nullptr;
 
-		if (shape->type == metascene::shapes::type::disk)
-			return create_disk(std::static_pointer_cast<metascene::shapes::disk>(shape));
-		
-		if (shape->type == metascene::shapes::type::mesh)
-			return create_mesh(std::static_pointer_cast<metascene::shapes::mesh>(shape));
-
-		if (shape->type == metascene::shapes::type::curve)
-			return create_curve(std::static_pointer_cast<metascene::shapes::curve>(shape));
-		
-		if (shape->type == metascene::shapes::type::sphere)
-			return create_sphere(std::static_pointer_cast<metascene::shapes::sphere>(shape));
-
-		if (shape->type == metascene::shapes::type::triangles)
-			return create_triangles(std::static_pointer_cast<metascene::shapes::triangles>(shape));
+		if (shape->type == "triangles") return create_triangles(shape.value());
+		if (shape->type == "sphere") return create_sphere(shape.value());
+		if (shape->type == "curve") return create_curve(shape.value());
+		if (shape->type == "mesh") return create_mesh(shape.value());
+		if (shape->type == "disk") return create_disk(shape.value());
 		
 		logs::error("unknown shape.");
 

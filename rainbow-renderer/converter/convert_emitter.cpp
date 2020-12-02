@@ -1,9 +1,5 @@
 #include "convert_emitter.hpp"
 
-#include "meta-scene/emitters/environment_emitter.hpp"
-#include "meta-scene/emitters/directional_emitter.hpp"
-#include "meta-scene/emitters/surface_emitter.hpp"
-
 #include "rainbow-core/logs/log.hpp"
 #include "rainbow-cpu/emitters/environment_light.hpp"
 #include "rainbow-cpu/emitters/directional_light.hpp"
@@ -15,39 +11,35 @@
 
 namespace rainbow::renderer::converter {
 
-	std::shared_ptr<emitter> create_surface_emitter(const std::shared_ptr<metascene::emitters::surface_emitter>& emitter)
+	std::shared_ptr<emitter> create_surface_emitter(const meta_scene::objects::light& light)
 	{
-		return std::make_shared<surface_light>(read_spectrum(emitter->radiance));
+		return std::make_shared<surface_light>(read_spectrum(light.intensity));
 	}
 
-	std::shared_ptr<emitter> create_environment_emitter(const std::shared_ptr<metascene::emitters::environment_emitter>& emitter, real radius)
+	std::shared_ptr<emitter> create_environment_emitter(const meta_scene::objects::light& light, real radius)
 	{
-		if (emitter->environment_map.empty())
-			return std::make_shared<environment_light>(read_spectrum(emitter->intensity), radius);
+		if (light.environment.image.empty())
+			return std::make_shared<environment_light>(read_spectrum(light.intensity), radius);
 
-		return std::make_shared<environment_light>(importers::import_environment_map(emitter->environment_map, emitter->gamma),
-			read_spectrum(emitter->intensity), radius);
+		return std::make_shared<environment_light>(
+			importers::import_environment_map(light.environment.image, light.environment.gamma),
+			read_spectrum(light.intensity), radius);
 	}
 
-	std::shared_ptr<emitter> create_directional_emitter(const std::shared_ptr<metascene::emitters::directional_emitter>& emitter, real radius)
+	std::shared_ptr<emitter> create_directional_emitter(const meta_scene::objects::light& light, real radius)
 	{
 		return std::make_shared<directional_light>(
-			read_spectrum(emitter->irradiance),
-			emitter->from - emitter->to, radius);
+			read_spectrum(light.intensity),
+			light.directional.from - light.directional.to, radius);
 	}
 
-	std::shared_ptr<emitter> create_emitter(const std::shared_ptr<metascene::emitters::emitter>& emitter, real radius)
+	std::shared_ptr<emitter> create_emitter(const std::optional<meta_scene::objects::light>& light, real radius)
 	{
-		if (emitter == nullptr) return nullptr;
+		if (!light.has_value()) return nullptr;
 		
-		if (emitter->type == metascene::emitters::type::surface)
-			return create_surface_emitter(std::static_pointer_cast<metascene::emitters::surface_emitter>(emitter));
-
-		if (emitter->type == metascene::emitters::type::directional)
-			return create_directional_emitter(std::static_pointer_cast<metascene::emitters::directional_emitter>(emitter), radius);
-		
-		if (emitter->type == metascene::emitters::type::environment)
-			return create_environment_emitter(std::static_pointer_cast<metascene::emitters::environment_emitter>(emitter), radius);
+		if (light->type == "surface") return create_surface_emitter(light.value());
+		if (light->type == "directional") return create_directional_emitter(light.value(), radius);
+		if (light->type == "environment") return create_environment_emitter(light.value(), radius);
 		
 		logs::error("unknown emitter.");
 

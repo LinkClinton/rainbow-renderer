@@ -1,10 +1,5 @@
 #include "convert_texture.hpp"
 
-#include "meta-scene/textures/constant_texture.hpp"
-#include "meta-scene/textures/mixture_texture.hpp"
-#include "meta-scene/textures/image_texture.hpp"
-#include "meta-scene/textures/scale_texture.hpp"
-
 #include "rainbow-cpu/textures/constant_texture.hpp"
 #include "rainbow-cpu/textures/mixture_texture.hpp"
 #include "rainbow-cpu/textures/image_texture.hpp"
@@ -16,81 +11,64 @@
 
 namespace rainbow::renderer::converter {
 
-	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::constant_texture>& texture)
+	std::shared_ptr<texture2d<spectrum>> create_constant_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
-		if (texture->value_type == metascene::textures::value_type::real)
-			return std::make_shared<constant_texture2d<spectrum>>(spectrum(texture->real));
-		
-		return std::make_shared<constant_texture2d<spectrum>>(read_spectrum(texture->spectrum));
+		return std::make_shared<constant_texture2d<spectrum>>(read_spectrum(texture.constant.value));
 	}
 
-	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::mixture_texture>& texture)
+	std::shared_ptr<texture2d<spectrum>> create_mixture_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
 		return std::make_shared<mixture_texture2d<spectrum>>(
-			create_spectrum_texture(texture->texture0),
-			create_spectrum_texture(texture->texture1),
-			create_real_texture(texture->alpha));
+			create_spectrum_texture(*texture.mixture.texture0),
+			create_spectrum_texture(*texture.mixture.texture1),
+			create_real_texture(*texture.mixture.alpha));
 	}
 
-	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::image_texture>& texture)
+	std::shared_ptr<texture2d<spectrum>> create_image_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
-		return resource_cache::read_spectrum_texture(texture->filename, texture->gamma);
+		return resource_cache::read_spectrum_texture(texture.image.filename, texture.image.gamma);
 	}
 
-	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::scale_texture>& texture)
+	std::shared_ptr<texture2d<spectrum>> create_scale_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
 		return std::make_shared<scale_texture2d<spectrum>>(
-			create_spectrum_texture(texture->scale),
-			create_spectrum_texture(texture->base));
+			create_spectrum_texture(*texture.scale.scale),
+			create_spectrum_texture(*texture.scale.base));
 	}
 	
-	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const std::shared_ptr<metascene::textures::texture>& texture)
+	std::shared_ptr<texture2d<spectrum>> create_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
-		if (texture->type == metascene::textures::type::constant)
-			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::constant_texture>(texture));
-
-		if (texture->type == metascene::textures::type::mixture)
-			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::mixture_texture>(texture));
-
-		if (texture->type == metascene::textures::type::image)
-			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::image_texture>(texture));
-
-		if (texture->type == metascene::textures::type::scale)
-			return create_spectrum_texture(std::static_pointer_cast<metascene::textures::scale_texture>(texture));
+		if (texture.type == "constant") return create_constant_spectrum_texture(texture);
+		if (texture.type == "mixture") return create_mixture_spectrum_texture(texture);
+		if (texture.type == "image") return create_image_spectrum_texture(texture);
+		if (texture.type == "scale") return create_scale_spectrum_texture(texture);
 		
 		return std::make_shared<constant_texture2d<spectrum>>(spectrum(1));
 	}
 
-	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::constant_texture>& texture)
-	{
-		assert(texture->value_type == metascene::textures::value_type::real);
-		
-		return std::make_shared<constant_texture2d<real>>(texture->real);
+	std::shared_ptr<texture2d<real>> create_constant_real_texture(const meta_scene::objects::texture& texture)
+	{	
+		return std::make_shared<constant_texture2d<real>>(texture.constant.value.r);
 	}
 
-	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::mixture_texture>& texture)
+	std::shared_ptr<texture2d<real>> create_mixture_real_texture(const meta_scene::objects::texture& texture)
 	{
 		return std::make_shared<mixture_texture2d<real>>(
-			create_real_texture(texture->texture0),
-			create_real_texture(texture->texture1),
-			create_real_texture(texture->alpha));
+			create_real_texture(*texture.mixture.texture0),
+			create_real_texture(*texture.mixture.texture1),
+			create_real_texture(*texture.mixture.alpha));
 	}
 	
-	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::image_texture>& texture)
+	std::shared_ptr<texture2d<real>> create_image_real_texture(const meta_scene::objects::texture& texture)
 	{
-		return resource_cache::read_real_texture(texture->filename, texture->gamma);
+		return resource_cache::read_real_texture(texture.image.filename, texture.image.gamma);
 	}
 	
-	std::shared_ptr<texture2d<real>> create_real_texture(const std::shared_ptr<metascene::textures::texture>& texture)
+	std::shared_ptr<texture2d<real>> create_real_texture(const meta_scene::objects::texture& texture)
 	{
-		if (texture->type == metascene::textures::type::constant)
-			return create_real_texture(std::static_pointer_cast<metascene::textures::constant_texture>(texture));
-
-		if (texture->type == metascene::textures::type::mixture)
-			return create_real_texture(std::static_pointer_cast<metascene::textures::mixture_texture>(texture));
-		
-		if (texture->type == metascene::textures::type::image)
-			return create_real_texture(std::static_pointer_cast<metascene::textures::image_texture>(texture));
+		if (texture.type == "constant") return create_constant_real_texture(texture);
+		if (texture.type == "mixture") return create_mixture_real_texture(texture);
+		if (texture.type == "image") return create_image_real_texture(texture);
 		
 		return std::make_shared<constant_texture2d<real>>(static_cast<real>(0));
 	}

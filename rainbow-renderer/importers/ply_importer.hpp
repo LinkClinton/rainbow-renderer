@@ -1,7 +1,6 @@
 #pragma once
 
-#include "meta-scene/shapes/triangles.hpp"
-#include "meta-scene/shapes/mesh.hpp"
+#include "meta-scene/objects/shape.hpp"
 
 #include "rainbow-cpu/shapes/mesh.hpp"
 
@@ -13,7 +12,7 @@
 
 namespace rainbow::renderer::importers {
 
-	std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename);
+	std::shared_ptr<meta_scene::objects::internal::triangles> load_ply_mesh(const std::string& filename);
 	
 }
 

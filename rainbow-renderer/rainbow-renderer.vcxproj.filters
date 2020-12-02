@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="importers\mitsuba_importer.cpp">
-      <Filter>importers</Filter>
-    </ClCompile>
     <ClCompile Include="importers\obj_importer.cpp">
       <Filter>importers</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="importers\mitsuba_importer.hpp">
-      <Filter>importers</Filter>
-    </ClInclude>
     <ClInclude Include="importers\obj_importer.hpp">
       <Filter>importers</Filter>
     </ClInclude>

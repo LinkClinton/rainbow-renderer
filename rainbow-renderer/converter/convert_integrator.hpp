@@ -1,6 +1,6 @@
 #pragma once
 
-#include "meta-scene/integrators/integrator.hpp"
+#include "meta-scene/objects/integrator.hpp"
 
 #include "rainbow-cpu/integrators/integrator.hpp"
 
@@ -11,7 +11,7 @@ using namespace rainbow::cpus::integrators;
 namespace rainbow::renderer::converter {
 
 	std::shared_ptr<integrator> create_integrator(
-		const std::shared_ptr<metascene::integrators::integrator>& integrator,
-		const std::shared_ptr<metascene::samplers::sampler>& sampler);
+		const meta_scene::objects::integrator& integrator,
+		const meta_scene::objects::sampler& sampler);
 	
 }

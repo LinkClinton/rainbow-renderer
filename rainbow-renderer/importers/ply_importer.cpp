@@ -91,7 +91,7 @@ namespace rainbow::renderer::importers {
 		}
 	}
 
-	std::shared_ptr<metascene::shapes::triangles> load_ply_mesh(const std::string& filename)
+	std::shared_ptr<meta_scene::objects::internal::triangles> load_ply_mesh(const std::string& filename)
 	{
 		auto stream = std::ifstream(filename, std::ios::binary);
 
@@ -128,15 +128,15 @@ namespace rainbow::renderer::importers {
 		
 		file.read(stream);
 
-		auto mesh = std::make_shared<metascene::shapes::triangles>();
+		auto triangles = std::make_shared<meta_scene::objects::internal::triangles>();
 		
-		if (indices) read_unsigned_from_data(indices, mesh->indices);
+		if (indices) read_unsigned_from_data(indices, triangles->indices);
 		
-		if (positions) read_vector3_from_data(positions, mesh->positions);
-		if (normals) read_vector3_from_data(normals, mesh->normals);
-		if (uvs) read_vector2_from_data(uvs, mesh->uvs);
+		if (positions) read_vector3_from_data(positions, triangles->positions);
+		if (normals) read_vector3_from_data(normals, triangles->normals);
+		if (uvs) read_vector2_from_data(uvs, triangles->uvs);
 
-		return mesh;
+		return triangles;
 	}
 	
 }

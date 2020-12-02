@@ -23,6 +23,6 @@ namespace rainbow::renderer {
 		void render_to(const std::string& filename) const;
 	};
 
-	renderer_scene create_from_meta_scene(const std::shared_ptr<metascene::scene>& meta_scene);
+	renderer_scene create_from_meta_scene(const meta_scene::scene& meta_scene);
 
 }

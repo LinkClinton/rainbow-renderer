@@ -24,19 +24,18 @@ std::shared_ptr<image_texture_t<2, float>> rainbow::renderer::resource_cache::re
 	return real_textures[filename] = importers::read_texture2d<real>(filename, gamma);
 }
 
-std::shared_ptr<mesh> rainbow::renderer::resource_cache::read_ply_mesh(
-	const std::shared_ptr<metascene::shapes::mesh>& mesh)
+std::shared_ptr<mesh> rainbow::renderer::resource_cache::read_ply_mesh(const meta_scene::objects::shape& mesh)
 {
-	const auto index = mesh->to_string();
+	const auto index = mesh.mesh.filename;
 
 	if (meshes.find(index) != meshes.end()) return meshes.at(index);
 
-	const auto triangles = importers::load_ply_mesh(mesh->filename);
+	const auto triangles = importers::load_ply_mesh(mesh.mesh.filename);
 
 	return meshes[index] = std::make_shared<cpus::shapes::mesh>(
-		mesh->mask == nullptr ? nullptr : converter::create_real_texture(mesh->mask),
+		mesh.mesh.mask == std::nullopt ? nullptr : converter::create_real_texture(mesh.mesh.mask.value()),
 		triangles->positions, std::vector<vector3>(), triangles->normals,
-		triangles->uvs, triangles->indices, mesh->reverse_orientation);
+		triangles->uvs, triangles->indices, mesh.reverse_orientation);
 }
 
 std::shared_ptr<mesh> rainbow::renderer::resource_cache::read_obj_mesh(const std::string& filename)
