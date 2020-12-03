@@ -50,7 +50,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/staircase2/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/living-room-3/scene.pbrt"); 
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/water-caustic/scene.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/cornell-box/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/glass-plate/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/bunny-fur/f3-15.pbrt");
 
@@ -64,7 +64,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame300.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame25.pbrt");
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); //no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");

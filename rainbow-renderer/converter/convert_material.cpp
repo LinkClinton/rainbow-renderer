@@ -24,93 +24,93 @@ namespace rainbow::renderer::converter {
 	std::shared_ptr<material> create_translucent_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<translucent_material>(
-			create_spectrum_texture(material.translucent.transmission),
-			create_spectrum_texture(material.translucent.reflectance),
-			create_spectrum_texture(material.translucent.specular),
-			create_spectrum_texture(material.translucent.diffuse),
-			create_real_texture(material.translucent.roughness),
-			material.translucent.remapping);
+			create_spectrum_texture(material.properties.at("transmission")),
+			create_spectrum_texture(material.properties.at("reflectance")),
+			create_spectrum_texture(material.properties.at("specular")),
+			create_spectrum_texture(material.properties.at("diffuse")),
+			create_real_texture(material.properties.at("roughness")),
+			material.remapping);
 	}
 
 	std::shared_ptr<material> create_subsurface_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<subsurface_material>(
-			create_spectrum_texture(material.subsurface.transmission),
-			create_spectrum_texture(material.subsurface.reflectance),
-			create_spectrum_texture(material.subsurface.diffuse),
-			create_spectrum_texture(material.subsurface.mfp),
-			create_real_texture(material.subsurface.roughness_u),
-			create_real_texture(material.subsurface.roughness_v),
-			create_real_texture(material.subsurface.eta),
-			material.subsurface.remapping);
+			create_spectrum_texture(material.properties.at("transmission")),
+			create_spectrum_texture(material.properties.at("reflectance")),
+			create_spectrum_texture(material.properties.at("diffuse")),
+			create_spectrum_texture(material.properties.at("mfp")),
+			create_real_texture(material.properties.at("roughness_u")),
+			create_real_texture(material.properties.at("roughness_v")),
+			create_real_texture(material.properties.at("eta")),
+			material.remapping);
 	}
 	
 	std::shared_ptr<material> create_substrate_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<substrate_material>(
-			create_spectrum_texture(material.substrate.specular),
-			create_spectrum_texture(material.substrate.diffuse),
-			create_real_texture(material.substrate.roughness_u),
-			create_real_texture(material.substrate.roughness_v),
-			material.substrate.remapping);
+			create_spectrum_texture(material.properties.at("specular")),
+			create_spectrum_texture(material.properties.at("diffuse")),
+			create_real_texture(material.properties.at("roughness_u")),
+			create_real_texture(material.properties.at("roughness_v")),
+			material.remapping);
 	}
 	
 	std::shared_ptr<material> create_diffuse_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<matte_material>(
-			create_spectrum_texture(material.diffuse.reflectance),
-			create_real_texture(material.diffuse.sigma));
+			create_spectrum_texture(material.properties.at("reflectance")),
+			create_real_texture(material.properties.at("sigma")));
 	}
 
 	std::shared_ptr<material> create_plastic_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<plastic_material>(
-			create_spectrum_texture(material.plastic.specular),
-			create_spectrum_texture(material.plastic.diffuse),
-			create_real_texture(material.plastic.roughness),
-			create_real_texture(material.plastic.eta),
-			material.plastic.remapping);
+			create_spectrum_texture(material.properties.at("specular")),
+			create_spectrum_texture(material.properties.at("diffuse")),
+			create_real_texture(material.properties.at("roughness")),
+			create_real_texture(material.properties.at("eta")),
+			material.remapping);
 	}
 
 	std::shared_ptr<material> create_mirror_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<mirror_material>(
-			create_spectrum_texture(material.mirror.reflectance));
+			create_spectrum_texture(material.properties.at("reflectance")));
 	}
 
 	std::shared_ptr<material> create_glass_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<glass_material>(
-			create_spectrum_texture(material.glass.reflectance),
-			create_spectrum_texture(material.glass.transmission),
-			create_real_texture(material.glass.roughness_u),
-			create_real_texture(material.glass.roughness_v),
-			create_real_texture(material.glass.eta),
-			material.glass.remapping);
+			create_spectrum_texture(material.properties.at("reflectance")),
+			create_spectrum_texture(material.properties.at("transmission")),
+			create_real_texture(material.properties.at("roughness_u")),
+			create_real_texture(material.properties.at("roughness_v")),
+			create_real_texture(material.properties.at("eta")),
+			material.remapping);
 	}
 
 	std::shared_ptr<material> create_metal_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<metal_material>(
-			create_spectrum_texture(material.metal.eta),
-			create_spectrum_texture(material.metal.k),
-			create_real_texture(material.metal.roughness_u),
-			create_real_texture(material.metal.roughness_v),
-			material.metal.remapping);
+			create_spectrum_texture(material.properties.at("eta")),
+			create_spectrum_texture(material.properties.at("k")),
+			create_real_texture(material.properties.at("roughness_u")),
+			create_real_texture(material.properties.at("roughness_v")),
+			material.remapping);
 	}
 
 	std::shared_ptr<material> create_uber_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<uber_material>(
-			create_spectrum_texture(material.uber.transmission),
-			create_spectrum_texture(material.uber.reflectance),
-			create_spectrum_texture(material.uber.specular),
-			create_spectrum_texture(material.uber.diffuse),
-			create_spectrum_texture(material.uber.opacity),
-			create_real_texture(material.uber.roughness_u),
-			create_real_texture(material.uber.roughness_v),
-			create_real_texture(material.uber.eta),
-			material.uber.remapping);
+			create_spectrum_texture(material.properties.at("transmission")),
+			create_spectrum_texture(material.properties.at("reflectance")),
+			create_spectrum_texture(material.properties.at("specular")),
+			create_spectrum_texture(material.properties.at("diffuse")),
+			create_spectrum_texture(material.properties.at("opacity")),
+			create_real_texture(material.properties.at("roughness_u")),
+			create_real_texture(material.properties.at("roughness_v")),
+			create_real_texture(material.properties.at("eta")),
+			material.remapping);
 	}
 
 	std::shared_ptr<material> create_mixture_material(const meta_scene::objects::material& material)
