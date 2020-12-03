@@ -1,4 +1,5 @@
 #include "renderer_scene.hpp"
+#include "renderer_config.hpp"
 
 #include "../converter/convert_integrator.hpp"
 #include "../converter/convert_camera.hpp"
@@ -19,6 +20,8 @@ namespace rainbow::renderer {
 	{
 		renderer_scene scene;
 
+		renderer_config::directory_path = meta_scene.directory_path;
+		
 		scene.integrator = converter::create_integrator(meta_scene.integrator, meta_scene.sampler);
 		scene.camera = converter::create_camera(meta_scene.camera, meta_scene.film);
 		scene.scene = converter::create_scene(meta_scene);

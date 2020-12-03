@@ -26,11 +26,11 @@ std::shared_ptr<image_texture_t<2, float>> rainbow::renderer::resource_cache::re
 
 std::shared_ptr<mesh> rainbow::renderer::resource_cache::read_ply_mesh(const meta_scene::objects::shape& mesh)
 {
-	const auto index = mesh.mesh.filename;
+	const auto index = renderer_config::directory_path + mesh.mesh.filename;
 
 	if (meshes.find(index) != meshes.end()) return meshes.at(index);
 
-	const auto triangles = importers::load_ply_mesh(mesh.mesh.filename);
+	const auto triangles = importers::load_ply_mesh(renderer_config::directory_path + mesh.mesh.filename);
 
 	return meshes[index] = std::make_shared<cpus::shapes::mesh>(
 		mesh.mesh.mask == std::nullopt ? nullptr : converter::create_real_texture(mesh.mesh.mask.value()),

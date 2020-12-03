@@ -15,7 +15,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame675.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame812.pbrt");
-	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/pbrt-book/book.pbrt"); // not support bump mapping
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/pbrt-book/book.pbrt"); // not support bump mapping
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/killeroos/killeroo-gold.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/chopper-titan/chopper-titan.pbrt");
@@ -64,7 +64,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/coffee/scene.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame380.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame300.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame25.pbrt");
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/measure-one/frame25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/breakfast/breakfast-lamps.pbrt"); //no triangle list mesh
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/sanmiguel/sanmiguel_cam25.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/barcelona-pavilion/pavilion-day.pbrt");

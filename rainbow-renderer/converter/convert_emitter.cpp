@@ -22,7 +22,7 @@ namespace rainbow::renderer::converter {
 			return std::make_shared<environment_light>(read_spectrum(light.intensity), radius);
 
 		return std::make_shared<environment_light>(
-			importers::import_environment_map(light.environment.image, light.environment.gamma),
+			importers::import_environment_map(renderer_config::directory_path + light.environment.image, light.environment.gamma),
 			read_spectrum(light.intensity), radius);
 	}
 

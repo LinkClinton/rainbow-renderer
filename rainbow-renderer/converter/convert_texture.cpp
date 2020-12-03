@@ -5,6 +5,7 @@
 #include "rainbow-cpu/textures/image_texture.hpp"
 #include "rainbow-cpu/textures/scale_texture.hpp"
 
+#include "../core/renderer_config.hpp"
 #include "../core/resource_cache.hpp"
 
 #include "convert_spectrum.hpp"
@@ -26,7 +27,7 @@ namespace rainbow::renderer::converter {
 
 	std::shared_ptr<texture2d<spectrum>> create_image_spectrum_texture(const meta_scene::objects::texture& texture)
 	{
-		return resource_cache::read_spectrum_texture(texture.image.filename, texture.image.gamma);
+		return resource_cache::read_spectrum_texture(renderer_config::directory_path + texture.image.filename, texture.image.gamma);
 	}
 
 	std::shared_ptr<texture2d<spectrum>> create_scale_spectrum_texture(const meta_scene::objects::texture& texture)
@@ -61,7 +62,7 @@ namespace rainbow::renderer::converter {
 	
 	std::shared_ptr<texture2d<real>> create_image_real_texture(const meta_scene::objects::texture& texture)
 	{
-		return resource_cache::read_real_texture(texture.image.filename, texture.image.gamma);
+		return resource_cache::read_real_texture(renderer_config::directory_path + texture.image.filename, texture.image.gamma);
 	}
 	
 	std::shared_ptr<texture2d<real>> create_real_texture(const meta_scene::objects::texture& texture)

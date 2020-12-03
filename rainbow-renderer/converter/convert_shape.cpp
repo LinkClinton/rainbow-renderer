@@ -6,6 +6,7 @@
 #include "rainbow-cpu/shapes/disk.hpp"
 #include "rainbow-core/logs/log.hpp"
 
+#include "../core/renderer_config.hpp"
 #include "../core/resource_cache.hpp"
 #include "convert_texture.hpp"
 
@@ -13,7 +14,7 @@ namespace rainbow::renderer::converter {
 
 	std::shared_ptr<shape> create_obj_mesh(const meta_scene::objects::shape& mesh)
 	{
-		return resource_cache::read_obj_mesh(mesh.mesh.filename);
+		return resource_cache::read_obj_mesh(renderer_config::directory_path + mesh.mesh.filename);
 	}
 
 	std::shared_ptr<shape> create_ply_mesh(const meta_scene::objects::shape& mesh)

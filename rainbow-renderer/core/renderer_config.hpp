@@ -2,6 +2,8 @@
 
 #include "rainbow-core/utilities.hpp"
 
+#include <string>
+
 namespace rainbow::renderer {
 
 	using namespace core;
@@ -29,6 +31,7 @@ namespace rainbow::renderer {
 
 		static inline coordinate_system camera_system = coordinate_system::right_hand;
 		static inline coordinate_system uv_system = coordinate_system::left_hand;
+		static inline std::string directory_path = std::string("");
 	};
 
 }
