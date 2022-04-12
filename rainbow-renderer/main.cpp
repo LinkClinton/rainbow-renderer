@@ -15,7 +15,7 @@ int main() {
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame542.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame675.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/transparent-machines/frame812.pbrt");
-	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/pbrt-book/book.pbrt"); // not support bump mapping
+	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/pbrt-book/book.pbrt"); // not support bump mapping
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/ganesha/ganesha.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/killeroos/killeroo-gold.pbrt");
 	//const auto scene = renderer::importers::import_pbrt_scene("./../scenes/chopper-titan/chopper-titan.pbrt");
@@ -83,7 +83,9 @@ int main() {
 	
 	//scene.integrator->set_debug_trace_pixel(vector2i(485, 53));
 	//scene.integrator->set_debug_trace_pixel(vector2i(1191, 422));
-	
+
+	const auto scene = renderer::importers::import_pbrt_scene("./../scenes/veach-mis/scene-v4.pbrt");
+
 	scene.render_to("image");
 
 	system("pause");
