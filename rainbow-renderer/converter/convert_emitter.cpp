@@ -30,7 +30,7 @@ namespace rainbow::renderer::converter {
 	{
 		return std::make_shared<directional_light>(
 			read_spectrum(light.intensity),
-			light.directional.from - light.directional.to, radius);
+			light.directional.direction, radius);
 	}
 
 	std::shared_ptr<emitter> create_emitter(const std::optional<meta_scene::objects::light>& light, real radius)

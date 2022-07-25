@@ -50,15 +50,15 @@ namespace rainbow::renderer::converter {
 		return std::make_shared<substrate_material>(
 			create_spectrum_texture(material.properties.at("specular")),
 			create_spectrum_texture(material.properties.at("diffuse")),
-			create_real_texture(material.properties.at("roughness_u")),
-			create_real_texture(material.properties.at("roughness_v")),
+			create_real_texture(material.properties.at("roughness")),
+			create_real_texture(material.properties.at("roughness")),
 			material.remapping);
 	}
 	
 	std::shared_ptr<material> create_diffuse_material(const meta_scene::objects::material& material)
 	{
 		return std::make_shared<matte_material>(
-			create_spectrum_texture(material.properties.at("reflectance")),
+			create_spectrum_texture(material.properties.at("diffuse")),
 			create_real_texture(material.properties.at("sigma")));
 	}
 
