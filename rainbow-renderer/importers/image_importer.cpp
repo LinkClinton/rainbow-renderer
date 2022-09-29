@@ -1,5 +1,7 @@
 #include "image_importer.hpp"
 
+#pragma warning(disable:4996)
+
 #ifdef __IMAGE_IMPORTER__
 
 #define STB_IMAGE_IMPLEMENTATION
